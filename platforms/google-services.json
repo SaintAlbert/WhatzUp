@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "775720801083",
+    "project_id": "firebase-e-social"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775720801083:android:cb499f60d6ef56e9",
+        "android_client_info": {
+          "package_name": "com.saintags.esocialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775720801083-kkmhoo722leikre2ih2kv0a5t0qbpmt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbSFsmXzp6pNb85kSZh15Ac_hqgpwFwWU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-75800315-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
