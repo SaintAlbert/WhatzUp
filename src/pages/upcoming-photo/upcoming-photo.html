@@ -1,0 +1,40 @@
+
+<ion-header>
+   
+    <ion-navbar color="none">
+        <ion-title *ngIf="!loading">{{upcoming.title | translate}}</ion-title>
+        <ion-title *ngIf="loading">{{'Upcoming' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content"  [ngClass]="getCategory(upcoming.categoryId)">
+    <loader *ngIf="loading"></loader>
+   
+    <upcoming-detail-card *ngIf="!loading" [item]="item" ></upcoming-detail-card>
+</ion-content>
+<ion-footer *ngIf="!loading"  >
+    <div [ngClass]="getCategory(upcoming.categoryId)">
+
+        <ion-item class="item-buttons ">
+            <button [disabled]="loading" ion-button large clear tappable (click)="onLike(upcoming)">
+                <ion-icon *ngIf="!upcoming.isLiked" large name="ios-heart-outline"></ion-icon>
+                <ion-icon *ngIf="upcoming.isLiked" large name="ios-heart"></ion-icon>
+            </button>
+            <button ion-button large clear tappable (click)="openComments(upcoming)">
+                <ion-icon name="ios-text-outline"></ion-icon>
+            </button>
+            <button tappable (click)="sharePhoto(upcoming)" ion-button large clear>
+                <ion-icon name="ios-return-right"></ion-icon>
+            </button>
+            <!--<button tappable (click)="openAlbum(item.album)" ion-button large clear>
+                {{upcoming.album.title}}
+            </button>-->
+            <button [disabled]="upcoming.loadingBookmark" tappable (click)="onBookmark(upcoming)" ion-button item-right large clear>
+                <ion-icon *ngIf="!upcoming.isBookmark" name="ios-bookmark-outline"></ion-icon>
+                <ion-icon *ngIf="upcoming.isBookmark" name="ios-bookmark"></ion-icon>
+            </button>
+
+        </ion-item>
+    </div>
+
+
+</ion-footer>

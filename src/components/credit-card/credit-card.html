@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)" novalidate>
+    <ion-item>
+        <input id="cc-number" formControlName="creditCard" type="tel" placeholder="{{'Card Number' | translate}}" autocomplete="cc-number" ccNumber>
+    </ion-item>
+    <ion-item>
+        <input id="cc-exp-date" formControlName="expirationDate" type="tel"   placeholder="{{'Expire date' | translate}}" autocomplete="cc-exp" ccExp>
+    </ion-item>
+    <ion-item> <input id="cc-cvc" formControlName="cvc" type="tel" placeholder="{{'Cvc' | translate}}" autocomplete="cc-cvc" ccCvc> </ion-item>
+    <ion-item>
+        <div >
+            <button ion-button type="submit" block>{{ 'Pay Now' | translate }} {{price}}</button>
+        </div>
+    </ion-item>
+</form>

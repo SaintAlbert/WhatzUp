@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-title>{{'Options'|translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="none">
+
+    <ion-list>
+        <ion-item tappable (click)="onInviteFriends()">{{'Invite Friends' | translate}}</ion-item>
+        <ion-item tappable (click)="onFacebookFriends()">{{'Find Facebook Friends' | translate }}</ion-item>
+        <ion-item tappable (click)="editModal()">{{'Edit Profile' | translate}}</ion-item>
+        <ion-item tappable (click)="changePassword()">{{'Change Password' | translate}}</ion-item>
+        <ion-item tappable (click)="modalLanguage()">{{'Language'|translate}}</ion-item>
+        <ion-item tappable (click)="onTerms()">{{'Terms of Service' | translate}}</ion-item>
+        <ion-item tappable (click)="aboutPage()">{{'About' | translate}}</ion-item>
+        <ion-item tappable (click)="logout()">{{'Logout'|translate}}</ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,151 @@
+<ion-header *ngIf="!cordova" no-shadow>
+    <ion-navbar color="none">
+        <ion-buttons start tappable (click)="dismiss()">
+            <button ion-button>
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Capture</ion-title>
+    </ion-navbar>
+
+</ion-header>
+<ion-content fullscreen>
+
+    <div #cameradisplay *ngIf="cordova" [ngClass]="cameradisplayClass">
+        <ion-fab right middle small class="hideBorder" *ngIf="ShowFlash"  tappable (click)="onTorchCanvas()">
+            <button ion-fab mini color="transparent">
+                <ion-icon *ngIf="flash" name="flash"></ion-icon>
+                <ion-icon *ngIf="!flash" name="ios-flash-outline"></ion-icon>
+            </button>
+        </ion-fab>
+
+        <ion-fab start top small class="myfab hideBorder" [ngClass]="showControl" tappable (click)="dismiss()">
+            <button ion-fab mini color="transparent"><ion-icon name="close"></ion-icon></button>
+        </ion-fab>
+
+        <ion-fab start top small class="myfab hideBorder" [ngClass]="hideControl" tappable (click)="dismissPublish()">
+            <button ion-fab mini color="transparent"><ion-icon name="undo"></ion-icon></button>
+        </ion-fab>
+        <div id="captureBtn" [ngClass]="showControl" tappable (click)="onCanvasStop()" #capturespan>
+            <!--<span>Tap for photo</span>-->
+        </div>
+        <div id="captureBtnText" [ngClass]="showControl">Tap for photo</div>
+
+        <ion-fab class="hideBorder" right bottom small [ngClass]="showControl" (click)="onSwitchCanvas()">
+            <button ion-fab mini color="transparent" tappable><ion-icon name="reverse-camera" ></ion-icon></button>
+            <!--style="display: inline-block; transform: rotate(90deg);"-->
+        </ion-fab>
+
+        <ion-fab class="hideBorder" left bottom small tappable (click)="openGalary()" [ngClass]="showControl">
+            <button ion-fab mini color="transparent"><ion-icon ios="ios-images" md="md-images"></ion-icon></button>
+        </ion-fab>
+
+        <!--<div class="sliderDiv" [ngClass]="showHideGalaryControl">
+            <ion-slides slidesPerView="8" spaceBetween="4">
+                <ion-slide style="width:150px!important;height:150px!important;margin:auto;" *ngFor="let g of galaryLibrary; let idx=index " tappable (click)="useGalaryPhoto(g.photoURL)">
+                    <img [src]="g.thumbnailURL | cdvphotolibrary" />
+                </ion-slide>
+            </ion-slides>
+        </div>-->
+
+
+        <div class="sliderDiv" [ngClass]="showHideFilterControl">
+            <!--<ion-slides slidesPerView="18" spaceBetween="2">-->
+            <ion-slides spaceBetween="2">
+                <ion-slide class="filterOption" tappable (click)="returnBackFilter()">
+                    <span>
+                        <ion-icon name="close"></ion-icon>
+                        None
+                    </span>
+                    <!--<div style="margin-top: 50%;">
+                        <button ion-fab mini color="transparent"><ion-icon name="close"></ion-icon></button>
+                    </div>-->
+                </ion-slide>
+                <ion-slide [ngStyle]="{ 'background-color': pg.c }" class="filterOption" *ngFor="let pg of filters; let idx=index " tappable (click)="changeColor(idx)">
+                    <span>
+                        {{pg.n}}
+                    </span>
+                </ion-slide>
+            </ion-slides>
+        </div>
+
+        <canvas id="fullsize" #fullsize [ngClass]="hideControl"></canvas>
+        <video autoplay #fullsizeVideo [ngClass]="showControl"></video>
+        <ion-fab left bottom tappable (click)="togleColor()" [ngClass]="hideControl">
+            <button ion-fab mini color="transparent"><ion-icon name="color-wand"></ion-icon></button>
+        </ion-fab>
+        <!--<ion-fab middle bottom small class="hideBorder" [ngClass]="showHideFilterControl" tappable (click)="returnBackFilter()">
+            <button ion-fab mini color="transparent"><ion-icon name="undo"></ion-icon></button>
+        </ion-fab>-->
+        <ion-fab right bottom tappable (click)="publishVideoImage()" class="sendBtn" [ngClass]="hideControl">
+            <button ion-fab mini color="primary"><ion-icon name="done-all"></ion-icon></button>
+        </ion-fab>
+
+    </div>
+    <div #publisher [ngClass]="publisherClass">
+        <img id="imageId" class="captureImage" #snapView>
+        <ion-fab start top small class="myfab hideBorder" tappable (click)="dismissPublish()">
+            <button ion-fab mini color="transparent"><ion-icon name="undo"></ion-icon></button>
+        </ion-fab>
+        <ion-fab *ngIf="cordova" class="hideBorder" left bottom small tappable (click)="openGalary()">
+            <button ion-fab mini color="transparent"><ion-icon ios="ios-images" md="md-images"></ion-icon></button>
+        </ion-fab>
+        <ion-fab right bottom tappable (click)="publishImage()" class="sendBtn">
+            <button ion-fab mini color="primary"><ion-icon name="done-all"></ion-icon></button>
+        </ion-fab>
+        <!--<button class="sendBtn" tappable (click)="publishImage()"><ion-icon ios="ios-send" md="md-send"></ion-icon></button>-->
+    </div>
+
+
+    <!-- empty-->
+    <div class="center" *ngIf="!cordova" padding>
+        <ion-fab start top small class="myfab hideBorder" tappable (click)="dismissPublish()">
+            <button ion-fab mini color="transparent"><ion-icon name="close"></ion-icon></button>
+        </ion-fab>
+        <div class="error" tappable (click)="openGalary()">
+            <ion-icon name="camera"></ion-icon>
+            <p>{{ 'Upload Photos ' | translate }}</p>
+        </div>
+
+    </div>
+
+
+    <input *ngIf="!cordova"
+           #inputFile
+           type="file"
+           (change)="onChange($event)"
+           accept="image/x-png, image/gif, image/jpeg"
+           max-size="2048"
+           style="display: none;">
+</ion-content>
+
+<content-drawer [options]="drawerOptions" [event]="_eventName">
+
+    <div class="content">
+        <!--<img src="../../assets/img/intro4.png" />-->
+        <ion-grid>
+            <div *ngFor="let image of galaryObject; let i = index;">
+                <ion-row *ngIf="i % 3 === 0">
+                    <ion-col col-4 tappable (click)="useGalaryPhoto(galaryObject[i].id )" *ngIf="i < galaryObject.length">
+                        <ion-thumbnail [ngClass]="isInArray(galaryObject[i].id) ? 'selected' : 'not-selected'">
+                            <img [src]="galaryObject[i].thumbnailURL | cdvphotolibrary" />
+                        </ion-thumbnail>
+                    </ion-col>
+                    <ion-col col-4 tappable (click)="useGalaryPhoto(galaryObject[i+1].id )" *ngIf="i+1 < galaryObject.length">
+                        <ion-thumbnail [ngClass]="isInArray(galaryObject[i+1].id) ? 'selected' : 'not-selected'">
+                            <img [src]="galaryObject[i+1].thumbnailURL | cdvphotolibrary" />
+                        </ion-thumbnail>
+                    </ion-col>
+                    <ion-col col-4 tappable (click)="useGalaryPhoto(galaryObject[i+2].id )" *ngIf="i+2 < galaryObject.length">
+                        <ion-thumbnail [ngClass]="isInArray(galaryObject[i+2].id) ? 'selected' : 'not-selected'">
+                            <img [src]="galaryObject[i+2].thumbnailURL | cdvphotolibrary" />
+                        </ion-thumbnail>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-grid>
+
+
+
+    </div>
+</content-drawer>

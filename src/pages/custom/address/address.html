@@ -1,0 +1,120 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+	Address
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content padding>
+	<div class="hm_service_listing" style="padding-top:10px;">
+		<h6>My Address</h6>
+		<div class="hm_address_bay">
+			<div class="hm_address_section">
+				Madiwala East,Twins Tower, Near Bustand<br>
+				Bangalore City
+			</div>
+			<div class="hm_address_arrow" (click)="selectaddress()">
+				<span><img src="assets/img/cat/hm_address_arw.png"></span>
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+		<button class="hm_add_address" (click) = "newaddress()">Add Address<span>+</span></button>
+		<h6>Select Date & Time</h6>
+		<div class="hm_date_selector">
+			<ion-scroll scrollX="true" style="height:75px;">
+				<ul>
+					<li>
+						Tuesday<br>
+						<strong>10</strong><br>
+						April	
+					</li>
+					<li>
+						Wednesday<br>
+						<strong>11</strong><br>
+						April	
+					</li>
+					<li>
+						Thursday<br>
+						<strong>12</strong><br>
+						April
+					</li>
+					<li>
+						Friday<br>
+						<strong>13</strong><br>
+						April	
+					</li>
+					<li>
+						Saturday<br>
+						<strong>14</strong><br>
+						April	
+					</li>
+					<li>
+						Sunday<br>
+						<strong>15</strong><br>
+						April	
+					</li>
+					<li>
+						Monday<br>
+						<strong>16</strong><br>
+						April	
+					</li>
+					<li>
+						Tuesday<br>
+						<strong>17</strong><br>
+						April
+					</li>
+					<li>
+						Wednesday<br>
+						<strong>18</strong><br>
+						April
+					</li>
+					<li>
+						Thursday<br>
+						<strong>19</strong><br>
+						April	
+					</li>
+					<li>
+						Friday<br>
+						<strong>20</strong><br>
+						April	
+					</li>
+			
+				</ul>
+			</ion-scroll>
+		</div>
+		<div class="hm_schedule">
+			<ul>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+				<li>08 : 00 am - 08 :30 pm</li>
+			</ul>
+		</div>
+	</div>
+
+</ion-content>
+<ion-footer>
+	<div class="hm_btn_bottom" >
+		<div class="hm_allservice_footer">
+			<div class="hm_items">
+			1
+			</div>
+			<span> <img src="assets/img/cat/hm_cart.png"></span>
+			<div class="hm_amount">
+				$ 599
+			</div>
+			<div class="hm_service_continue" (click)="payment()">
+				Continue
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+	</div>
+</ion-footer>

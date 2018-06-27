@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar color="none">
+
+        <ion-title>{{'Upcoming Prices' | translate }}</ion-title>
+        <ion-buttons start>
+            <button ion-button tappable (click)="doCancel()">
+                <ion-icon name="close" tappable (click)="doCancel()"></ion-icon>
+                cancel
+            </button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <!--<button ion-button (click)="Add()">Add More</button>-->
+         <ion-item>
+            <ion-label floating>{{'Price Currency' | translate}}</ion-label>
+            <ion-select popover [(ngModel)]="form.currencyId" name="currencyId" text-wrap (ngModelChange)="onCurrencyChange()" [required]="true">
+                <ion-option *ngFor="let currency of countryCurrency" [value]="currency.id">{{currency.currency| translate}} ({{ currency.symbol }})</ion-option>
+
+            </ion-select>
+        </ion-item>
+        <ion-card *ngFor="let att of anArray; let idx = index" no-padding>
+
+            <ion-item-divider><ion-icon name="ios-cash-outline"></ion-icon> Price ({{idx+1}}) <button ion-button item-right clear (click)="Remove(idx)"><ion-icon color="danger" name="trash" tappable (click)="Remove(idx)"></ion-icon></button></ion-item-divider>
+            <ion-item>
+                <ion-label>Label</ion-label>
+                <ion-input type="text" [(ngModel)]="anArray[idx].label" placeholder="{{'price label' | translate}}" [required]="true"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Value {{form.symbol}}</ion-label>
+                <ion-input type="number" [(ngModel)]="anArray[idx].Price" step="0.01" placeholder="{{'price value' | translate}}"></ion-input>
+            </ion-item>
+
+
+        </ion-card>
+        <ion-item-divider> Add more price  <button ion-button item-right (click)="Add()"><ion-icon name="add" tappable></ion-icon></button></ion-item-divider>
+
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+
+
+    <ion-item class="item-buttons">
+        <button ion-button clear tappable (click)="doCancel()">
+            <ion-icon name="close" tappable (click)="doCancel()"></ion-icon>
+            cancel
+        </button>
+
+
+        <button tappable (click)="dismiss()" ion-button item-right>
+            Continue
+        </button>
+
+    </ion-item>
+
+
+
+</ion-footer>
+

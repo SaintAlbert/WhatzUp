@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button clear tappable (click)="dismiss(true)">
+                {{'Cancel' | translate}}
+            </button>
+        </ion-buttons>
+        <ion-title>{{'Edit' | translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button clear tappable (click)="submit(rForm)">
+                {{'Update' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list >
+        <ion-item>
+            <ion-avatar item-left>
+                <img *ngIf="item.user.photo" [src]="item.user.photo" width="40px"
+                            height="40px">
+                <img *ngIf="!item.user.photo" src="assets/img/user.png">
+            </ion-avatar>
+            <h2>{{item.user.username}}</h2>
+            <p>{{item.user.status}}</p>
+
+            <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+
+        </ion-item>
+        <img *ngIf="item.image"  [src]="item.image" >
+        <form #rForm="ngForm" (ngSubmit)="submit(rForm)">
+            <ion-item>
+                <ion-label floating>{{'Title' | translate }}</ion-label>
+                <ion-input type="text" [(ngModel)]="form.title" name="title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Privacity' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.privacity" name="privacity">
+                    <ion-option value="public">{{'Public' | translate}}</ion-option>
+                    <ion-option value="followers">{{'Followers' | translate}}</ion-option>
+                    <ion-option value="me">{{'Me' | translate }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <!-- Album -->
+            <album-input *ngIf="item.image"  [album]="item.album"></album-input>
+            <!-- Location -->
+            <address-input [address]="item.address"></address-input>
+        </form>
+    </ion-list>
+</ion-content>

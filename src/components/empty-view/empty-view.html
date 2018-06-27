@@ -1,0 +1,7 @@
+<div class="empty-content">
+  <ion-icon *ngIf="icon" [name]="icon"></ion-icon>
+  <img *ngIf="logo" [src]="logo">
+  <h1>{{ text }}</h1>
+  <p>{{desc}}</p>
+  <ng-content></ng-content>
+</div>

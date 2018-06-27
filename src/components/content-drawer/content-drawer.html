@@ -1,0 +1,39 @@
+
+    <!--<ion-header>
+        <ion-navbar color="transparent">
+            <ion-title>
+                Photo Library
+            </ion-title>
+        </ion-navbar>
+    </ion-header>-->
+<ion-header >
+    <ion-navbar color="none">
+        <ion-buttons start tappable (click)="closePan()">
+            <button ion-button>
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <div [hidden]="sharedStopUp">
+            <ion-buttons *ngIf="!updown" end tappable (click)="openFullPan()">
+                <button ion-button>
+                    <ion-icon name="arrow-up"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-buttons *ngIf="updown" end tappable (click)="closePan()">
+                <button ion-button>
+                    <ion-icon name="arrow-down"></ion-icon>
+                </button>
+            </ion-buttons>
+        </div>
+        <ion-title *ngIf="!title">
+            {{options.showTitle}}
+        </ion-title>
+        <ion-title *ngIf="title">
+            {{options.hideTitle}}
+        </ion-title>
+    </ion-navbar>
+</ion-header> 
+
+<ion-content fullscreen>
+    <ng-content></ng-content>
+</ion-content>

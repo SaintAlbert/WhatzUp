@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="none">
+    <ion-title>
+      {{'Profile' | translate}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button tappable (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!--<ion-content class="background">-->
+<ion-content class="none">
+    <form [formGroup]="formGroup"
+          #rForm>
+        <div class="item-background" >
+            <div class="item-avatar">
+                <image-capture #image (imageChange)="changePhoto($event)">
+                    <ion-avatar>
+                        <img [src]="photo">
+                    </ion-avatar>
+                    <!--<img [src]="photo">-->
+                </image-capture>
+            </div>
+            </div>
+            <dynamic-form-ionic-control *ngFor="let controlModel of formModel"
+                                        [group]="formGroup"
+                                        [model]="controlModel">
+            </dynamic-form-ionic-control>
+
+            <ion-row>
+                <ion-col>
+                    <button type="submit"
+                            ion-button
+                            block
+                            round
+                            tappable (click)="onSubmit(rForm)"
+                            color="primary">
+                        {{'Submit' | translate}}
+                    </button>
+                </ion-col>
+            </ion-row>
+</form>
+</ion-content>

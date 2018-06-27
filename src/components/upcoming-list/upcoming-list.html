@@ -1,0 +1,79 @@
+
+<loader *ngIf="loading && !data.length"></loader>
+<!-- error -->
+<div class="center" *ngIf="showErrorView" padding>
+    <div class="error ">
+        <ion-icon [name]="errorIcon"></ion-icon>
+        <p>{{ 'Connection unavailable' | translate }}</p>
+        <button ion-button color="primary" tappable (click)="doTry()">
+            {{ 'Try again' | translate }}
+        </button>
+    </div>
+</div>
+<!-- empty-->
+<div class="center" *ngIf="showEmptyView" padding>
+    <div class="error">
+        <ion-icon [name]="errorIcon"></ion-icon>
+        <p>{{ 'Upcoming not found' | translate }} </p>
+    </div>
+</div>
+
+
+<div *ngIf="data.length">
+    <ion-list>
+        <ion-grid fixed>
+            <ion-row align-items-stretch lazy-load-images>
+                <ion-item-group *ngFor="let group of data | groupByPipe: 'startDate'">
+                    <ion-item-divider  detail-push color="transparent" sticky tappable (click)="onSelectDateCategory(group.key)">
+                        <ion-icon  name="calendar-outline" color="light"></ion-icon>
+                            {{ group.key | date:'dd MMMM yyyy'}}
+                        
+                    </ion-item-divider>
+                    <ion-col col-12 col-md-4 align-self-stretch align-self-center *ngFor="let item of group.list ">
+                        <upcoming-card [item]="item"></upcoming-card>
+                    </ion-col>
+                </ion-item-group>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <ion-infinite-scroll *ngIf="moreItem" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</div>
+
+
+<!--<div #scrollingBlock>
+
+    <virtual-scroll [items]="data"  [parentScroll]="scrollingBlock.nativeElement"  (update)="viewPortItems = $event" >
+        <div #container>
+            <ion-list>
+                <ion-grid fixed>
+                    <ion-row align-items-stretch>
+
+                        <ion-col col-12 col-md-4 align-self-stretch align-self-center *ngFor="let item of viewPortItems">
+                            <upcoming-card [item]="item"></upcoming-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+        </div>
+    </virtual-scroll>
+    <ion-infinite-scroll *ngIf="moreItem" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</div>-->
+<!--<div [hidden]="data.length == 0">
+    <ion-list [virtualscroll]="data"  [virtualtrackby]="identify" style="height:100%!important;">
+        <ion-grid fixed>
+            <ion-row align-items-stretch>
+                <ion-col col-12 col-md-4 align-self-stretch align-self-center *virtualitem="let item">
+                    <upcoming-card [item]="item"></upcoming-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+
+</div>-->
+<!--<ion-infinite-scroll *ngif="moreitem" (ioninfinite)="doinfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>-->

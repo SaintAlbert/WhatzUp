@@ -1,0 +1,126 @@
+
+<ion-header class="hm_bg_color hm_header" (click)="scrollTop()">
+  <ion-navbar color="none"  class="hm_bg_color hm_header" >
+    <ion-buttons>
+      <button ion-button icon-only tappable (click)="onPagecamera($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title  class="hm_header_location_bay" (click)="location()">
+     {{mylocation}}
+      <span><img src="assets/img/cat/hm_dwn_arw.png"></span>
+    </ion-title>
+    <!--<button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)="location()"></button>-->
+
+    <ion-buttons end>
+      <button ion-button icon-only tappable (click)="onPageChat()">
+        <ion-icon name="ios-chatbubbles">
+          <ion-badge id="notifications-badge" color="danger">{{chatbadgeIncrease}}</ion-badge>
+        </ion-icon>
+
+      </button>
+    </ion-buttons>
+    <div class="hm_clear"></div>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-header  class="hm_bg_color hm_header" (click)="scrollTop()">
+  <ion-toolbar >
+    <ion-buttons>
+      <button ion-button icon-only tappable (click)="onPagecamera($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+    </ion-buttons>
+    
+      <div class="hm_header_location_bay">
+        Banarsi Das Estate, Delhi
+        <span><img src="assets/img/cat/hm_dwn_arw.png"></span>
+      </div>
+      <button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)="location()"></button>
+      <div class="hm_clear"></div>
+  
+    <ion-buttons end>
+      <button ion-button icon-only tappable (click)="onPageChat()">
+        <ion-icon name="ios-chatbubbles">
+          <ion-badge id="notifications-badge" color="danger">{{chatbadgeIncrease}}</ion-badge>
+        </ion-icon>
+
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>-->
+
+<!--<ion-header (click)="scrollTop()"  >
+    <ion-navbar color="none">
+        <ion-buttons>
+            <button ion-button icon-only tappable (click)="onPagecamera($event)">
+                <ion-icon name="add"></ion-icon>
+            </button>
+
+        </ion-buttons>
+        <ion-title >{{appName}} </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only tappable (click)="onPageChat()">
+                <ion-icon name="ios-chatbubbles">
+                    <ion-badge id="notifications-badge" color="danger">{{chatbadgeIncrease}}</ion-badge>
+                </ion-icon>
+
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+   
+</ion-header>-->
+
+<ion-content no-bounce  fullscreen>
+
+    <super-tabs scrollTabs  (tabSelect)="onTabSelect($event)" selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="primary"  >
+        <super-tab [root]="page1" title="Upcoming" icon="calendar-outline" id="upcoming"></super-tab>
+        <super-tab [root]="page3" title="Handyman" icon="construct-outline" id="category"></super-tab>
+        <super-tab [root]="page2" title="Moment" icon="clock-outline" id="timeline"></super-tab>
+    </super-tabs>
+
+    <!--<ion-fab right bottom small *ngIf="type=='timeline'">
+        <button color="transparent" ion-fab tappable (click)="openShareCapture()">
+            <ion-icon name="camera" color="primary"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-fab right bottom small *ngIf="type=='upcoming'">
+        <button color="transparent" ion-fab tappable (click)="openUpcomingCapture()">
+            <ion-icon name="camera" color="primary"></ion-icon>
+        </button>
+    </ion-fab>-->
+
+    <!--<ion-refresher (ionRefresh)="doRefresh($event)" [enabled]="!isIOS">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <upload-status></upload-status>
+    <upcoming-list [event]="eventName" *ngIf="type=='upcoming'"></upcoming-list>
+    <div *ngIf="type=='timeline'">
+     
+        <ion-scroll class="story" scrollX="true" *ngIf="stories.length>0">
+            <div class="story_scroll" *ngFor="let s of stories">
+                <div class="story_img_bg">
+                    <img no-margin no-padding class="story_img" [src]="s.img">
+                </div>
+                <p text-center class="story_text">{{ s.user_name }}</p>
+            </div>
+        </ion-scroll>
+        <hr no-margin no-padding />
+        <photo-list [event]="eventName" *ngIf="type=='timeline'"></photo-list>
+    </div>
+  
+    <category-list *ngIf="type=='category'"></category-list>-->
+
+    <input *ngIf="!cordova"
+           #inputFile
+           type="file"
+           (change)="onChange($event)"
+           accept="image/x-png, image/gif, image/jpeg"
+           max-size="2048"
+           style="display: none;">
+
+   
+</ion-content>

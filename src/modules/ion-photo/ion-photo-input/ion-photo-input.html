@@ -1,0 +1,11 @@
+<div tappable (click)="openCapture()" >
+  <input *ngIf="!cordova"
+         #inputFile
+         type="file"
+         (change)="onChange($event)"
+         accept="image/x-png, image/gif, image/jpeg"
+         max-size="2048"
+         style="display: none;">
+  <ng-content></ng-content>
+
+</div>

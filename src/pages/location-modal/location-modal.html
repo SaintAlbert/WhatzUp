@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar color="none">
+        <ion-searchbar [(ngModel)]="_words" (ionInput)="doSearch()" (ionCancel)="doCancel()" [placeholder]="_placeholder">
+        </ion-searchbar>
+        <ion-buttons start>
+            <button ion-button tappable (click)="dismiss()">
+                <ion-icon name="close" tappable (click)="dismiss()"></ion-icon>
+               
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of _languages" tappable (click)="selectLanguage(item)">
+            {{item.name}}
+        </ion-item>
+    </ion-list>
+
+</ion-content>

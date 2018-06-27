@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-title>{{'Change language' | translate }}</ion-title>
+        <ion-buttons start>
+            <button ion-button tappable (click)="dismiss()">
+                <ion-icon name="close" tappable (click)="dismiss()"></ion-icon>
+                {{'Cancel' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-searchbar
+            [(ngModel)]="_words"
+            (ionInput)="doSearch()"
+            (ionCancel)="doCancel()"
+            placeholder="{{'Search address' | translate}}">
+    </ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <ion-item *ngFor="let item of _languages" tappable (click)="selectLanguage(item)">
+            {{item.name}}
+        </ion-item>
+    </ion-list>
+
+</ion-content>

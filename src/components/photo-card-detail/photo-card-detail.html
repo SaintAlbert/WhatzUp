@@ -1,0 +1,119 @@
+<ion-card >
+    <ion-item [hidden]="isModal" >
+       
+        <ion-avatar tappable (click)="openProfile(item.user.username)" item-left>
+          
+            <img *ngIf="item.user.photo" [src]="item.user.photo" width="40px" height="40px">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">
+        </ion-avatar>
+        <h2 tappable (click)="openProfile(item.user.username)">{{item.user.name || item.user.username }}</h2>
+        <p>{{item.address.country}}</p>
+        <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+        <button tappable (click)="openPopover($event)" ion-button large clear item-right>
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-item>
+
+    <!--<img-progressive class="img-gallery"
+                     [src]="item['image']"
+                     [srcLow]="item['imageLow']" tappable (click)="presentImage(item.image)">
+    </img-progressive>-->
+
+    <img [src]="item['image']" class="imgBox" imageViewer object-fit="cover"  object-fit-watch-mq="true" />
+   
+    <ion-card-content *ngIf="item.title">
+        <p>{{item.title}}</p>
+    </ion-card-content>
+    <ion-item class="item-buttons">
+        <button [disabled]="item.loading" ion-button large clear tappable (click)="onLike(item)">
+            <ion-icon *ngIf="!item.isLiked" large name="ios-heart-outline"></ion-icon>
+            <ion-icon *ngIf="item.isLiked" large name="ios-heart"></ion-icon>
+        </button>
+        <button ion-button large clear tappable (click)="openComments(item)">
+            <ion-icon name="ios-text-outline"></ion-icon>
+        </button>
+        <button tappable (click)="sharePhoto(item)" ion-button large clear>
+            <ion-icon name="ios-return-right"></ion-icon>
+        </button>
+        <!--<button  tappable (click)="openAlbum(item.album)" ion-button large clear>
+            {{item.album.title}}
+        </button>-->
+        <button [disabled]="item.loadingBookmark" tappable (click)="onBookmark(item)" ion-button item-right large clear>
+            <ion-icon *ngIf="!item.isBookmark" name="ios-bookmark-outline"></ion-icon>
+            <ion-icon *ngIf="item.isBookmark" name="ios-bookmark"></ion-icon>
+        </button>
+
+    </ion-item>
+    <ion-item>
+        <ion-note tappable (click)="onLike(item)">
+            <ion-icon name="ios-heart"></ion-icon>
+            {{item.likesTotal}} {{'likes' | translate}}
+        </ion-note>
+        <ion-note item-end tappable (click)="openComments(item)">
+            <ion-icon name="ios-text"></ion-icon>
+            {{item.commentsTotal}} {{'comments' | translate}}
+        </ion-note>
+    </ion-item>
+
+    <div >
+        <!--<p *ngFor="let comment of item.comments">
+            <b>{{comment.user.name}}</b> {{comment.text}}
+        </p>-->
+
+        <div  class="message-wrapper" *ngFor="let item of comment">
+            <div>
+                <img class="profile-pic" [ngClass]="item.class" [src]="item.photo">
+                <div class="chat-bubble " [ngClass]="item.class">
+                    <div class="message"> {{item.get('text')}}</div>
+                    <div class="message-detail">
+                        <span class="bold">{{item.get('profile').get('name')}}</span>,
+                        <span>{{item.createdAt | amTimeAgo }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--<div class="message-wrapper ">
+        <div *ngFor="let comment of item.comments" class="chat-bubble left">
+            <img class="profile-pic left"  [src]="comment.user.photo">
+            <b class="message">{{comment.user.name}}</b> {{comment.text}}
+        </div>
+    </div>-->
+    <!--<ion-item >
+        <div class="message-wrapper" *ngFor="let c of item.comments">
+            <ion-item>
+                <img class="profile-pic" [ngClass]="c.class" [src]="c.user.photo">
+                <div class="chat-bubble " [ngClass]="c.class">
+                    <div class="message"></div>
+                    <div class="message-detail">
+                        <span class="bold">{{c.user.name}}</span>,
+                        <span>{{c.createdAt | amTimeAgo }}</span>
+                    </div>
+                </div>
+            </ion-item>
+        </div>
+    </ion-item>-->
+
+
+
+    <!--<div padding>
+        <p *ngFor="let comment of item.comments">
+            <ion-card>
+                <ion-item>
+                    <ion-avatar item-left>
+                        <img class="profile-pic" [src]="comment.user.photo">
+                    </ion-avatar>
+                    <ion-card-content>
+
+                        {{comment.text}}
+                    </ion-card-content>
+                
+            </ion-card>
+        </p>
+    </div>-->
+</ion-card>
+
+

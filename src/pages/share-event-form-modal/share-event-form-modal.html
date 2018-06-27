@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button clear tappable (click)="dismiss(true)">
+                {{'Cancel' | translate}}
+            </button>
+        </ion-buttons>
+        <ion-title>{{'Share Upcoming' | translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button clear tappable (click)="submit()">
+                {{'Submit' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+
+            <ion-label><ion-icon name="calendar"></ion-icon>{{form.title}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <img [src]="form.image">
+            </ion-thumbnail>
+            <ion-label text-wrap> {{form.description}}</ion-label>
+        </ion-item>
+        <ion-item-divider ion-item light no-lines>
+            <b>{{'Share event with ?' | translate}}</b>
+            <ion-icon item-right name="md-share"></ion-icon>
+        </ion-item-divider>
+
+        <ion-list radio-group>
+            <ion-item-divider text-wrap><ion-icon name="information-circle"></ion-icon> {{'Upcoming will be share to public user ' | translate}}</ion-item-divider>
+            <ion-item>
+                <ion-label><b>{{'Public ' | translate}}</b> <ion-note item-end>{{form.symbol}}{{form.publicfee}}</ion-note></ion-label>
+                <ion-radio value="public" checked tappable (click)="shareSet('public')"></ion-radio>
+            </ion-item>
+            <ion-item-divider text-wrap><ion-icon name="information-circle"></ion-icon> {{'Upcoming will be share to followers only ' | translate}}</ion-item-divider>
+            <ion-item>
+                <ion-label><b>{{'Followers ' | translate}}</b> <ion-note item-end>{{form.symbol}}{{form.frendshipfee}}</ion-note></ion-label>
+                <ion-radio value="followers" tappable (click)="shareSet('followers')"></ion-radio>
+            </ion-item>
+            <ion-item-divider text-wrap><ion-icon name="information-circle"></ion-icon> {{'Upcoming is private to you only' | translate}}</ion-item-divider>
+            <ion-item>
+                <ion-label><b>{{'Only me ' | translate}}</b><ion-note item-end>Free</ion-note></ion-label>
+                <ion-radio value="me" tappable (click)="shareSet('me')"></ion-radio>
+            </ion-item>
+        </ion-list>
+
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-title><b>Amount to pay: {{form.chargefee}}</b></ion-title>
+    </ion-toolbar>
+</ion-footer>

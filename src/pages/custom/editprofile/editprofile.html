@@ -1,0 +1,51 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="dismiss()"></button>
+  <div class="hm_search_header">
+    Edit Profile
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content padding class="hm_sign_bg">
+	<div class="hm_service_listing" style="padding-top:10px;">
+	<div class="hm_myprofile_photo">
+			<img src="assets/img/cat/hm_profile_photo.png">
+			<div class="hm_edit_circle">
+				<img src="assets/img/cat/hm_edit_circle.png">
+			</div>
+	</div>
+	<br>
+	<br>
+	<div class="hm_newaddress_field">
+		<ul>
+			<li>
+				<input class="hm_new_input" placeholder="User name">
+			</li>
+			<li>
+				<input class="hm_new_input" placeholder="user@gmail.com">
+			</li>
+			<li>
+				<input class="hm_new_input" placeholder="+91 9961531199">
+			</li>
+			<li style="padding-top: 10px;">
+				<div class="hm_cancel_reason" style="font-size: 16px;">
+					Gender
+				</div>
+				<div class="hm_cancel_radio" style="padding-left:20px;">
+					<ion-radio ng-model="choice3" ng-value="'a'"></ion-radio>
+					<label>Male</label>
+					<ion-radio ng-model="choice3" ng-value="'b'"></ion-radio>
+					<label>Female</label>
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+		</ul>
+	</div>
+</div>
+</ion-content>
+<ion-footer>
+	<div class="hm_btn_bottom" style="position: fixed;bottom: 50px">
+		<button class="hm_bottom_save" (click)="dismiss()">Save<span><img src="assets/img/cat/hm_tick.png"></span></button>
+	</div>
+<!--<tabcomponent></tabcomponent>-->
+</ion-footer>
+

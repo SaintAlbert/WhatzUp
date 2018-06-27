@@ -1,0 +1,105 @@
+<ion-header class="hm_bg_color hm_header">
+  <div class="hm_search_header">
+	My Projects
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content class="hm_sign_bg">
+<div class="hm_project">
+  <div class="hm_project_tab">
+	<ul>
+		<li [class.active]="tab=='active'" (click)="tab_swap('active')"><span>.</span>Ongoing Projects</li>
+		<li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')"><span>.</span>Project History</li>
+	</ul>
+  </div>
+<div class="tabcontent" [hidden]="tab=='inactive'">
+	<div class="hm_project_tab_content">
+		<h5>Spa at home<span><img src="assets/img/cat/hm_more1.png"></span></h5>
+		<div class="hm_response">
+			<div class="hm_response_left">Responses<strong>5</strong></div>
+			<div class="hm_response_right">
+				<div class="hm_show_all" (click)="projectlist()">Show all<span><img src="assets/img/cat/hm_show_arw.png"></span></div>
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+		 <ion-scroll scrollX="true" style="height:90px;">
+			<div class="hm_response_list">
+				<ul>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Lora Spa</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Hein Beauty Spot</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Orange Spa</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Perl Saloon</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Lora Spa</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Hein Beauty Spot</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Orange Spa</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_response_photo"></div>
+						<div class="hm_response_details">Perl Saloon</div>
+						<div class="hm_clear"></div>
+					</li>
+					
+				</ul>
+			</div>
+		 </ion-scroll>
+		 <div class="hm_response">
+			<div class="hm_response_left">Messages<strong>5</strong></div>
+			<div class="hm_response_right">
+				<div class="hm_show_all">Read all<span><img src="assets/img/cat/hm_show_arw.png"></span></div>
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+		<hr>
+		<br>
+		<h5>Fitness at home<span><img src="assets/img/cat/hm_more1.png"></span></h5>
+		<div class="hm_response">
+			<div class="hm_response_left">Responses<strong>0</strong></div>
+			<div class="hm_response_right">
+				<div class="hm_show_all hm_show_all_deactive">Show all<span><img src="assets/img/cat/hm_show_arw.png"></span></div>
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+		<div class="hm_response">
+			<div class="hm_response_left">Messages<strong>0</strong></div>
+			<div class="hm_response_right">
+				<div class="hm_show_all hm_show_all_deactive">Read all<span><img src="assets/img/cat/hm_show_arw.png"></span></div>
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+	</div>
+</div>
+<div class="tabcontent" [hidden]="tab=='active'" >
+safqgqeg
+</div>
+</div>
+</ion-content>
+<ion-footer>
+	<tabcomponent></tabcomponent>
+</ion-footer>

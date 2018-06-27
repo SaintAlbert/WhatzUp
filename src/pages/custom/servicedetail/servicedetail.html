@@ -1,0 +1,112 @@
+<ion-header>
+
+    <ion-navbar color="none">
+        <ion-title class="hm_service_div">
+            <!--<p> {{service.name}}</p>-->
+            <div> <img [src]="service.src" style="height:20px;width:20px;"> <span>{{service.name}}</span></div>
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar color="none">
+                <div style="float:left!important; display:block; color:#fff;font-size: 1.1em ;">
+        <img [src]="serviceItem.src" style="height:20px;width:20px;">
+         <span>{{serviceItem.name}}</span></div>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list style="margin-top:0!important;">
+        <div *ngFor="let s of serviceItems">
+            <ion-item *ngFor="let g of s.packageList">
+                <div class="hm_service_details">
+                    <h5>{{g.label}}</h5>
+                    <p>
+                        <span>{{g.desc[0]}}</span>
+                        <br>
+                        <i>More info..</i>
+                        <!--<span *ngFor="let s of g.desc">
+                            {{s}}
+                            <br>
+                        </span>-->
+                    </p>
+                    <h6>{{g.price | currency:getCode(g.code):true:'1.2-2'}}</h6>
+                </div>
+                <div class="hm_service_add">
+                    <button class="hm_service_btn" (click)="add(s)">ADD +</button>
+                </div>
+                <div class="hm_clear"></div>
+            </ion-item>
+        </div>
+        <!--<ion-item>
+            <div class="hm_service_details">
+                <h5>Monthly Wax and Groom</h5>
+                <p>
+                    Waxing ( Full Legs, Arms, Under Arms )<br>
+                    + Threading ( Full Face )
+                </p>
+                <h6>$ 59</h6>
+            </div>
+            <div class="hm_service_add">
+                <button class="hm_service_btn" (click)="add()">ADD +</button>
+            </div>
+            <div class="hm_clear"></div>
+        </ion-item>
+        <ion-item>
+            <div class="hm_service_details">
+                <h5>Monthly Wax and Groom</h5>
+                <p>
+                    Waxing ( Full Legs, Arms, Under Arms )<br>
+                    + Threading ( Full Face )
+                </p>
+                <h6>$ 59</h6>
+            </div>
+            <div class="hm_service_add">
+                <button class="hm_service_btn" (click)="add()">ADD +</button>
+            </div>
+            <div class="hm_clear"></div>
+        </ion-item>
+        <ion-item>
+            <div class="hm_service_details">
+                <h5>Monthly Wax and Groom</h5>
+                <p>
+                    Waxing ( Full Legs, Arms, Under Arms )<br>
+                    + Threading ( Full Face )
+                </p>
+                <h6>$ 59</h6>
+            </div>
+            <div class="hm_service_add">
+                <button class="hm_service_btn" (click)="add()">ADD +</button>
+            </div>
+            <div class="hm_clear"></div>
+        </ion-item>
+        <ion-item>
+            <div class="hm_service_details">
+                <h5>Monthly Wax and Groom</h5>
+                <p>
+                    Waxing ( Full Legs, Arms, Under Arms )<br>
+                    + Threading ( Full Face )
+                </p>
+                <h6>$ 59</h6>
+            </div>
+            <div class="hm_service_add">
+                <button class="hm_service_btn" (click)="add()">ADD +</button>
+            </div>
+            <div class="hm_clear"></div>
+        </ion-item>-->
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <div class="hm_btn_bottom">
+        <div class="hm_allservice_footer">
+            <div class="hm_items">
+                1
+            </div>
+            <span> <img src="assets/img/cat/hm_cart.png"></span>
+            <div class="hm_amount">
+                $ 599
+            </div>
+            <div class="hm_service_continue" (click)="summary()">
+                Continue
+            </div>
+            <div class="hm_clear"></div>
+        </div>
+    </div>
+</ion-footer>

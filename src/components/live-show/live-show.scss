@@ -1,0 +1,53 @@
+live-show {
+     
+    div#videos-container{
+        width:100%;
+        
+    }
+
+     div#captureBtn {
+        width: 60px;
+        height: 60px;
+        border: 5px solid white;
+        border-color: map-get($colors, primary) !important;
+        border-radius: 50%;
+        background: none;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 20px;
+        z-index: 1;
+        cursor: pointer;
+    }
+     div#captureBtn > span{
+      font-size:11px;
+      text-align:center;
+       top: 13px!important;
+       position:absolute;
+       color:#fff;//#rgba(0, 0, 0, 0.2);
+    }
+
+
+    div#captureBtn:active {
+        width: 80px;
+        height: 80px;
+        border: 7px solid white;
+        border-color: map-get($colors, custom) !important;
+        border-radius: 50%;
+        background: map-get($colors, custom) !important;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 20px;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    div.recordingAnimation {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        left: calc(50% - 35px);
+        bottom: 40px;
+        z-index: 8;
+    }
+
+}

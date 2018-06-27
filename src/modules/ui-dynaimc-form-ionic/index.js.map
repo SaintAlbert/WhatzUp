@@ -1,0 +1,1 @@
+{"version":3,"sources":["ui-ionic/index.ts"],"names":[],"mappings":"AAAA,cAAc,oCAAoC,CAAC;AACnD,cAAc,uBAAuB,CAAC","file":"index.js","sourcesContent":["export * from \"./src/dynamic-form-ionic.component\";\nexport * from \"./src/ui-ionic.module\";"]}

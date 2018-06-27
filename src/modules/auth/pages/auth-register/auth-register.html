@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="none">
+    <ion-title>{{'Signup' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="none">
+  <image-capture (imageChange)="changePhoto($event)">
+    <ion-avatar>
+      <img *ngIf="photo" [src]="photo">
+      <img *ngIf="!photo" src="assets/img/user.png">
+    </ion-avatar>
+  </image-capture>
+
+  <form [formGroup]="formGroup"
+        #rForm>
+
+    <dynamic-form-ionic-control
+      *ngFor="let controlModel of formModel"
+      [group]="formGroup"
+      [model]="controlModel">
+
+    </dynamic-form-ionic-control>
+
+    <ion-row>
+      <ion-col>
+        <button type="submit"
+                ion-button
+                block
+                round
+                tappable (click)="onSubmit(rForm)"
+                color="primary">{{'Signup' | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <span class="terms" tappable (click)="onTerms()">{{'Terms of Service' | translate}}</span>
+
+</ion-content>

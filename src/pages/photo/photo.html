@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-title>{{'Photo' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <loader *ngIf="loading"></loader>
+    <photo-card-detail *ngIf="!loading" [item]="item" ></photo-card-detail>
+
+
+</ion-content>

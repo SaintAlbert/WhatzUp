@@ -1,0 +1,212 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+Fitness
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+
+
+<ion-content class="hm_sign_bg">
+    <div class="hm_wrapper_inner">
+		<div class="hm_wizard_progress">
+			<ul>
+				<div class="hm_progress0" [hidden] ="currentIndex != 0"></div>
+				<div class="hm_progress1" [hidden] ="currentIndex != 1"></div>
+				<div class="hm_progress2" [hidden] ="currentIndex != 2"></div>
+				<div class="hm_progress3" [hidden] ="currentIndex != 3"></div>
+				<!-- <li>
+					<div class="hm_progress" [hidden] ="currentIndex != 0"></div>
+					<div class="hm_progress_deactive" [hidden] ="currentIndex == 0"></div>
+				</li>
+				<li>
+					<div class="hm_progress" [hidden] ="currentIndex != 1"></div>
+					<div class="hm_progress_deactive" [hidden] ="currentIndex == 1"></div>
+				</li>
+				<li>
+					<div class="hm_progress" [hidden] ="currentIndex != 2"></div>
+					<div class="hm_progress_deactive" [hidden] ="currentIndex == 2"></div>
+				</li>
+				<li>
+					<div class="hm_progress" [hidden] ="currentIndex != 3"></div>
+					<div class="hm_progress_deactive" [hidden] ="currentIndex == 3"></div>
+				</li>
+				<div class="hm_clear"></div> -->
+			</ul>
+		</div>
+        <ion-slides pager="false" #mySlider class="hm_wizard_wrapper" (ionSlideDidChange)="slideChanged()">
+            <ion-slide class="hm_wizard_slide">
+				<div class="hm_wizard_completion">
+					<div class="hm_wizard_progress_info">
+						<strong>0</strong>% Completion
+					</div>
+					<div class="hm_wizard_content">
+						<h5>OUR PROMISE</h5>
+						<ul>
+							<li>Experienced and verified furniture <br>contractors</li>
+							<li>High 	quality delivery</li>
+						</ul>
+						<h5>SERVICES OFFERED</h5>
+						<ul>
+							<li>Free stretching services</li>
+							<li>1 hour Relaxation warmup</li>
+						</ul>
+					</div>
+				</div>
+            </ion-slide>
+            <ion-slide class="hm_wizard_slide">
+				<div class="hm_wizard_completion">
+					<div class="hm_wizard_progress_info">
+						<strong>25</strong>% Completion
+					</div>
+					<div class="hm_wizard_content">
+						<h5>PLEASE SPECIFY YOUR GOAL TO HELP AS FOR FIND THE TRAINER ?</h5>
+						<br>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Weight loss
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice1" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Weight gain
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice2" ng-value="'B'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Strength
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Overall fitness
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice4" ng-value="'D'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Others
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+					</div>
+				</div>
+            </ion-slide>
+            <ion-slide class="hm_wizard_slide">
+				<div class="hm_wizard_completion">
+					<div class="hm_wizard_progress_info">
+						<strong>50</strong>% Completion
+					</div>
+					<div class="hm_wizard_content">
+						<h5>WHAT TIME ARE YOU AVAILABLE FOR
+TRAINING SESSIONS?</h5>
+						<br>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Early morning
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Morning
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Afternoon
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+						<div class="hm_radio_custom">
+							<div class="hm_radio_div">
+								<ion-radio ng-model="choice" ng-value="'A'"></ion-radio>
+							</div>
+							<div class="hm_radio_label">
+								Evening
+							</div>
+							<div class="hm_clear"></div>
+						</div>
+					</div>
+				</div>
+            </ion-slide>
+			<ion-slide class="hm_wizard_slide">
+              <div class="hm_wizard_completion">
+					<div class="hm_wizard_progress_info">
+						<strong>100</strong>% Completion
+					</div>
+					<div class="hm_wizard_content">
+						<h5>WHERE ARE YOU LOCATED?</h5>
+						<p>We’d need your location to find professionals who
+service in your area</p>
+						<br>
+						
+						<h6>Your Locality</h6>
+						<input class="hm_location_input" placeholder="Banarsi Das Estate, Delhi">
+						<br>
+						<br>
+							<button  class="hm_getlocation_btn">
+							Get Current Location
+							</button>
+					</div>
+				</div>
+            </ion-slide>
+         </ion-slides>
+	</div>
+</ion-content>
+	<ion-footer>
+		<div class="hm_wizard_footer">
+		<p>We will save your requirement preferences for future<br> 
+requests</p>
+	  <div class="" [hidden] ="currentIndex != 0">
+       <button  class="hm_wizard_footer_btn"(click)="goToNextSlide()">
+         Get Started
+       </button>
+	   
+     </div>
+     <div class="" [hidden] = "currentIndex != 1">
+          <button  class="hm_wizard_footer_btn" (click)="goToNextSlide()">
+            Next
+          </button>
+        </div>
+		<div class="" [hidden] ="currentIndex != 2">
+          <button  class="hm_wizard_footer_btn" (click)="goToNextSlide()">
+			Next
+          </button>
+        </div>
+		<div class="" [hidden] ="currentIndex != 3">
+          <button  class="hm_wizard_footer_btn" (click)="wizardsuccess()">
+			Get Quotes
+          </button>
+        </div>
+		</div>
+</ion-footer>
+

@@ -1,0 +1,13 @@
+<div class="sliderDiv" [ngClass]="showHideFilterControl">
+    <ion-slides spaceBetween="2">
+        <ion-slide class="filterOption" tappable (click)="returnBackFilter()">
+
+            <img [src]="Originalimage" />
+
+        </ion-slide>
+
+        <ion-slide class="filterOption" *ngFor="let pg of item ; let idx=index " tappable (click)="changeColor(idx)">
+            <img [src]="pg" />
+        </ion-slide>
+    </ion-slides>
+</div>

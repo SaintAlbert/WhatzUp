@@ -1,0 +1,170 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button clear tappable (click)="dismiss(true)">
+                {{'Cancel' | translate}}
+            </button>
+        </ion-buttons>
+        <ion-title>{{'Edit' | translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button clear tappable (click)="submit(rForm)">
+                {{'Update' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-avatar item-left>
+                <img *ngIf="item.user.photo" [src]="item.user.photo" width="40px"
+                     height="40px">
+                <img *ngIf="!item.user.photo" src="assets/img/user.png">
+            </ion-avatar>
+            <h2>{{item.user.username}}</h2>
+            <p>{{item.user.status}}</p>
+            <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+        </ion-item>
+        <img [src]="item.image">
+        <form #rForm="ngForm" (ngSubmit)="submit(rForm)">
+            <ion-item>
+
+                <ion-label>{{'Title' | translate}}</ion-label>
+                <ion-icon name="calendar"></ion-icon>
+                <ion-input [(ngModel)]="form.title" name="title" placeholder="{{'Event title...' | translate}}" [required]="true"></ion-input>
+            </ion-item>
+            <ion-item>
+                <!--<ion-thumbnail item-left>
+                    <img [src]="form.image">
+                </ion-thumbnail>-->
+                <!--<ion-textarea [(ngModel)]="form.description"
+                              name="description"
+                              placeholder="{{'Write event description...' | translate}}" [required]="true"></ion-textarea>-->
+                <textarea #textmsgId [(ngModel)]="form.description"
+                          name="description"
+                          placeholder="{{'Write event description... (required!)' | translate}}" [required]="true"></textarea>
+
+            </ion-item>
+            <ion-item>
+
+                <ion-input type="tel" [(ngModel)]="form.contact"
+                           name="contact" placeholder="{{'Contact number (optional)' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Category' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.categoryId" name="categoryId" text-wrap (ngModelChange)="onCategoryChange()" [required]="true">
+                    <ion-option *ngFor="let category of postCategory" [value]="category.id">{{category.slug | translate}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Privacy' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.privacity" name="privacity" (ngModelChange)="onPrivacyChange()" [required]="true">
+                    <ion-option value="public">{{'Public ' | translate}} <!--<ion-note item-end>{{form.publicfee | currency:'USD':true:'1.2-2'}}</ion-note>--></ion-option>
+                    <ion-option value="followers">{{'Followers' | translate}}</ion-option>
+                    <ion-option value="me">{{'Me' | translate }}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-label *ngIf="!addressSelected" style="color:red;padding-left:12px;">{{'Select event address' | translate }}</ion-label>
+            <address-input [address]="form.address" text-wrap></address-input>
+
+
+            <ion-item-divider ion-item light no-lines>
+                <b>{{'Date & Time' | translate}}</b>
+                <ion-icon item-right name="timer-outline"></ion-icon>
+            </ion-item-divider>
+            <ion-item>
+                <ion-label>{{'Start Date' | translate}}</ion-label>
+                <ion-datetime min="{{year}}" displayFormat="MMM DD, YYYY HH:mm" placeholder="{{'Start Date & Time' | translate}}" [(ngModel)]="startDate" (ngModelChange)="dateStartChanged($event)" name="startDate" [required]="true"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'End Date' | translate}}</ion-label>
+                <ion-datetime min="{{year}}" displayFormat="MMM DD, YYYY HH:mm" placeholder="{{'End Date & Time' | translate}}" [(ngModel)]="endDate" (ngModelChange)="dateEndChanged($event)" name="endDate" [required]="true"></ion-datetime>
+            </ion-item>
+
+            
+
+            <ion-list>
+                <!--<ion-grid>
+                    <ion-row text-center radio-group>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>{{'Free event' | translate}}</ion-label>
+                                <ion-radio value="true" checked tappable (click)="priceSet(true)"></ion-radio>
+                            </ion-item>
+
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <ion-label>{{'Pay event' | translate}}</ion-label>
+                                <ion-radio value="false" tappable (click)="priceSet(false)"></ion-radio>
+                            </ion-item>
+
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>-->
+                <ion-item-divider ion-item light no-lines>
+                    <b>{{'Price' | translate}}</b>
+                    <ion-icon item-right name="cash-outline"></ion-icon>
+                </ion-item-divider>
+                <ion-grid radio-group>
+                    <ion-row text-center >
+                        <ion-col *ngIf="form.priceType">
+                            <ion-item>
+                                <ion-label>{{'Free event' | translate}}</ion-label>
+                                <ion-radio value="true" checked  tappable (click)="priceSet(true)"></ion-radio>
+                            </ion-item>
+
+                        </ion-col>
+                        <ion-col *ngIf="!form.priceType">
+                            <ion-item>
+                                <!--<ion-label>{{'Pay event' | translate}}</ion-label>-->
+                                <!--<ion-radio value="false" tappable (click)="priceSet(false)"></ion-radio>-->
+                                <ion-label>{{'Change Price' | translate}}</ion-label>
+                                <ion-radio value="false" checked  tappable (click)="addPrice();priceSet(false)"></ion-radio>
+
+                            </ion-item>
+
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <ion-card [hidden]="form.priceType" style="padding-bottom:10px!important;">
+                    <div *ngFor="let att of priceArray; let idx = index">
+                        <ion-item-divider><ion-icon name="ios-cash-outline"></ion-icon> Price ({{idx+1}}) </ion-item-divider>
+                        <ion-item>
+                            <ion-label class="left">{{priceArray[idx].label | translate}}</ion-label>
+                            <ion-label class="right" color="primary">{{priceArray[idx].Price  | currency:getCode(form.code) :true:'1.2-2'}}</ion-label>
+
+                        </ion-item>
+                    </div>
+                </ion-card>
+                    <!--<ion-card [hidden]="form.priceType">
+            <ion-item>
+                <ion-label>{{'Currency' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.currencyId" [disabled]="form.priceType" name="currencyId" text-wrap (ngModelChange)="onCurrencyChange()" [required]="true">
+                    <ion-option *ngFor="let currency of countryCurrency" [value]="currency.id">{{currency.currency| translate}} ({{ currency.symbol }})</ion-option>
+
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="form.price" [disabled]="form.priceType" step="0.01"
+                           name="price" placeholder="{{'Enter standard price (0.00)  ' | translate}}" [required]="true"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="form.vip" [disabled]="form.priceType" step="0.01"
+                           name="vip" placeholder="{{'Enter vip price (0.00) (optional)' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="form.executive" [disabled]="form.priceType" step="0.01"
+                           name="executive" placeholder="{{'Enter executive price (0.00) (optional)' | translate}}"></ion-input>
+            </ion-item>
+        </ion-card>-->
+
+
+</ion-list>
+
+        </form>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button tappable (click)="dismiss()">
+                {{'Cancel' | translate}}
+            </button>
+        </ion-buttons>
+        <ion-title>{{'Crop Photo' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <img [src]="img" id="image"/>
+
+    <!--Rotate-->
+    <ion-fab left bottom>
+        <button color="dark" ion-fab mini tappable (click)="rotate(-90)">
+            <ion-icon class="invert" name="refresh"></ion-icon>
+        </button>
+    </ion-fab>
+
+    <!-- Crop-->
+    <ion-fab center bottom>
+        <button color="blue" ion-fab tappable (click)="crop()">
+            <ion-icon name="crop"></ion-icon>
+        </button>
+    </ion-fab>
+
+    <!-- Rotate-->
+    <ion-fab right bottom>
+        <button color="dark" ion-fab mini tappable (click)="rotate(90)">
+            <ion-icon name="refresh"></ion-icon>
+        </button>
+    </ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,13 @@
+<ion-item>
+    <div tappable (click)="showAddressModal()">
+        <h4><ion-icon name="pin" icon-right></ion-icon> {{ 'Venue Address' | translate}}</h4>
+    </div>
+    <div *ngIf="!address" style="color:red;" tappable (click)="showAddressModal()" >{{'Select event address' | translate }}</div>
+    
+    <div *ngIf="address && address['resume']" tappable (click)="showAddressModal()">
+        <h2>{{address['formatted_address']}}<ion-icon style="float:right!important;" name="close" tappable (click)="clearAddress()" icon-right></ion-icon></h2>
+      
+    </div>
+    
+    <!--*ngIf="!address.length"-->
+</ion-item>

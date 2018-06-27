@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar color="none">
+        <ion-title>Add to Cart</ion-title>
+        <ion-buttons start>
+            <button ion-button tappable (click)="dismiss()">
+                <ion-icon name="close" tappable (click)="dismiss()"></ion-icon>
+                {{'Cancel' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="hm_theme_trans_bg">
+	<div class="hm_add_pop_div">
+		<div class="hm_add_pop_inner">
+			<div class="hm_add_pop_wrapper">
+				<div class="hm_add_pop_banner">
+					<div class="hm_add_close" (click)= "dismiss()">
+						<img src="assets/img/cat/hm_add_close.png">
+					</div>
+					<img src="assets/img/cat/hm_add_pop_img.png">
+				</div>
+				<div class="hm_add_detail" *ngFor="let g of serviceItem.packageList">
+					<div class="hm_add_name_bay">
+						<h6>{{g.label}}</h6>
+						<span class="price">{{g.price | currency:getCode(g.code):true:'1.2-2'}}</span><span>|</span><span class="time">{{g.min}}</span>
+					</div>
+					<div class="hm_add_list">
+						<h6>Package Include</h6>
+						<ul *ngFor="let s of g.desc">
+							<li>{{s}}</li>
+						</ul>
+						<br>
+						<button class="hm_service_btn">ADD +</button>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

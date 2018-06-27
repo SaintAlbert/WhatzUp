@@ -1,0 +1,48 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+	Select address
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content padding>
+<div class="hm_service_listing" style="padding-top:10px;">
+	<h6>Choose Address</h6>
+	<button class="hm_add_address" (click) = "newaddress()">Add New Address<span>+</span></button>
+
+	<br>
+	<br>
+	<hr>
+	<h6>Saved Address</h6>
+	<div class="hm_cancel_pop_lower" style="padding:0px;">
+		<ul>
+			<li>
+				<div class="hm_cancel_radio">
+					<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+				</div>
+				<div class="hm_cancel_reason">
+					Banglore City, Station Jn, Railway Colony<br>
+Banglore
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+			<li>
+				<div class="hm_cancel_radio">
+					<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+				</div>
+				<div class="hm_cancel_reason">
+					Banglore City, Station Jn, Railway Colony<br>
+Banglore
+				</div>
+				<div class="hm_clear"></div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</ion-content>
+<ion-footer>
+	<div class="hm_btn_bottom" >
+		<button class="hm_bottom_save1">Done<span><img src="assets/img/cat/hm_tick.png"></span></button>
+	</div>
+</ion-footer>

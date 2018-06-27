@@ -1,0 +1,146 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="dismiss()"></button>
+  <div class="hm_search_header">
+   View Profile
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+
+
+<ion-content padding class="hm_sign_bg">
+<div class="hm_view_profile_banner">
+	<div class="hm_view_profile_pic">
+	</div>
+	<div class="hm_view_profile_detail">
+		<h4>Anjaly Bhathiya</h4>
+		<span><img src="assets/img/cat/hm_star.png">4.3</span>
+		<p>Banglore City, Station Jn, Railway <br>
+Colony, Banglore</p>
+<p><strong>$ 330/</strong>&nbsp;&nbsp;month</p>
+	</div>
+	<div class="hm_clear"></div>
+</div>
+<div class="hm_view_tab_bay">
+	<li [class.active]="tab=='media'" (click)="tab_swap('media')"><a>MEDIA</a></li>
+	<li [class.active]="tab=='review'" (click)="tab_swap('review')"><a>REVIEW</a></li>
+	<li [class.active]="tab=='about'" (click)="tab_swap('about')"><a>ABOUT</a></li>
+	<div class="hm_clear"></div>
+</div>
+<div class="hm_view_tab_content" [hidden]="tab !='media'">
+	<div class="hm_recommended_list">
+		<h4><span><img src="assets/img/cat/hm_video.png"></span><span>Videos & Photos</span></h4>
+		<br>
+		<div class="hm_experience">
+					 <ion-slides pager="false" #mySlider class="hm_test_video_slider">
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video1.png">
+						</ion-slide>
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video2.png">
+						</ion-slide>
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video3.png">
+						</ion-slide>
+					 </ion-slides>
+				</div>
+				<div class="hm_experience_thumbnail">
+					 <ion-slides pager="false" #mySlider class="hm_thumb_video_slider">
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video1.png">
+						</ion-slide>
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video2.png">
+						</ion-slide>
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video3.png">
+						</ion-slide>
+						<ion-slide>
+							<div class="hm_test_video_slider_overlay"></div>
+							<img src="assets/img/cat/hm_video1.png">
+						</ion-slide>
+					 </ion-slides>
+				</div>
+	</div>
+</div>
+<div class="hm_view_tab_content" [hidden]="tab !='review'" >
+<div class="hm_reviews_list">
+	<ul>
+		<li>
+			<div class="hm_testimonial_top">
+				<div class="hm_testimonial_pic">
+				</div>
+				<div class="hm_testimonial_detail">
+					<h5>Roshna Elsa John</h5>
+					<p><span><img src="assets/img/cat/hm_star.png">4.3</span>Wed 26,2017</p>
+				</div>
+				<div class="hm_clear"></div>
+				<div class="hm_testimoanil_p">
+					“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+				</div>
+			</div>
+		</li>
+		<hr>
+		<li>
+			<div class="hm_testimonial_top">
+				<div class="hm_testimonial_pic">
+				</div>
+				<div class="hm_testimonial_detail">
+					<h5>Roshna Elsa John</h5>
+					<p><span><img src="assets/img/cat/hm_star.png">4.3</span>Wed 26,2017</p>
+				</div>
+				<div class="hm_clear"></div>
+				<div class="hm_testimoanil_p">
+					“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+				</div>
+			</div>
+		</li>
+		<hr>
+		<li>
+			<div class="hm_testimonial_top">
+				<div class="hm_testimonial_pic">
+				</div>
+				<div class="hm_testimonial_detail">
+					<h5>Roshna Elsa John</h5>
+					<p><span><img src="assets/img/cat/hm_star.png">4.3</span>Wed 26,2017</p>
+				</div>
+				<div class="hm_clear"></div>
+				<div class="hm_testimoanil_p">
+					“ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+</div>
+<div class="hm_view_tab_content" [hidden]="tab !='about'" >
+<h5>Business name</h5>
+<h4>Utimate Nutrition</h4>
+<h5>Introduction</h5>
+<p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </p>
+<h5>No of times Hired</h5>
+<h4>135</h4>
+<h5>Qualification</h5>
+<h4>MFA Sculpting and Design</h4>
+<h5>Organisations Served</h5>
+<h4>Wall Sculpting, Office Interiors</h4>
+</div>
+
+</ion-content>
+<ion-footer>
+<div class="hm_btn_bottom hm_align_center">
+		<button class="hm_chat_btn">
+			<span>Chat<img src="assets/img/cat/hm_comment.png"></span>
+		</button>
+		<button class="hm_call_btn">
+			<span>Call<img src="assets/img/cat/hm_call.png"></span>
+		</button>
+		<div class="hm_clear"></div>
+	</div>
+</ion-footer>

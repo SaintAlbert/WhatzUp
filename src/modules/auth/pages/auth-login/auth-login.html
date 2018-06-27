@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-title>{{'Signin' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="none">
+
+  <form [formGroup]="formGroup"
+        #rForm>
+
+    <dynamic-form-ionic-control
+      *ngFor="let controlModel of formModel"
+      [group]="formGroup"
+      [model]="controlModel">
+
+    </dynamic-form-ionic-control>
+
+    <ion-row>
+      <ion-col>
+        <a ion-button
+           color="primary"
+           block
+           clear tappable (click)="resetPassword()">{{'Forgot Password'|translate}}</a>
+      </ion-col>
+      <ion-col>
+        <button ion-button
+                color="primary"
+                block
+                round
+                tappable (click)="onSubmit(rForm)"
+        >{{'Login' | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+
+</ion-content>

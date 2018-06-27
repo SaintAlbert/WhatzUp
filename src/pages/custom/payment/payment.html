@@ -1,0 +1,95 @@
+<ion-header class="hm_bg_color hm_header">
+  <button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>
+  <div class="hm_search_header">
+	Payment
+  </div>
+  <div class="hm_clear"></div>
+</ion-header>
+<ion-content padding>
+	<div class="hm_service_listing" style="padding-top:10px;">
+		<h6>Payment Amount</h6>
+		<strong>$ 400.00</strong>
+		<div class="hm_payment_div">
+			<div class="hm_payment_tab">
+				<ul>
+					<li [class.active]="tab=='active'" (click)="tab_swap('active')"><span>.</span>Pay Now</li>
+					<li [class.active]="tab=='inactive'" (click)="tab_swap('inactive')"><span>.</span>Pay Later</li>
+					<div class="hm_clear"></div>
+				</ul>
+			</div>
+			<div class="hm_payment_content" [hidden]="tab=='inactive'">
+				<ul>
+					<li>
+						<div class="hm_cancel_radio">
+							<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+						</div>
+						<div class="hm_cancel_reason">
+							 Cards
+						</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_cancel_radio">
+							<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+						</div>
+						<div class="hm_cancel_reason">
+							 Netbanking
+						</div>
+						<div class="hm_clear"></div>
+					</li>
+					<li>
+						<div class="hm_cancel_radio">
+							<ion-radio ng-model="choice3" ng-value="'C'"></ion-radio>
+						</div>
+						<div class="hm_cancel_reason">
+							 Wallet
+						</div>
+						<div class="hm_clear"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="hm_payment_content" [hidden]="tab=='active'">
+			2
+			</div>
+		</div>
+		<div class="hm_promo">
+			<input class="hm_promo_input" placeholder="Enter Promo Code">
+			<button class="hm_promo_btn">Apply</button>
+			<div class="hm_clear"></div>
+		</div>
+		<h6>Summary</h6>
+		<div class="hm_summary_report">
+			<ul>
+				<li>
+					<div class="child1">Sub Total</div>
+					<div class="child2">$ 246.00</div>
+					<div class="hm_clear"></div>
+				</li>
+				<li>
+					<div class="child1">Coupon Discount</div>
+					<div class="child2">-$ 0.00</div>
+					<div class="hm_clear"></div>
+				</li>
+				<br>
+				<li>
+					<div class="child1"><strong>Total</strong></div>
+					<div class="child2"><strong>$ 246.00</strong></div>
+					<div class="hm_clear"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</ion-content>
+<ion-footer>
+	<div class="hm_btn_bottom" >
+		<div class="hm_allservice_footer">
+			<div class="hm_amount" style="border:none;padding-left:15px;">
+				Pay &nbsp;&nbsp;|&nbsp;&nbsp; $ 599
+			</div>
+			<div class="hm_service_continue">
+				Paynow
+			</div>
+			<div class="hm_clear"></div>
+		</div>
+	</div>
+</ion-footer>

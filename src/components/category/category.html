@@ -1,0 +1,18 @@
+<!-- Generated template for the CategoryComponent component -->
+<ion-item class="item item-divider"> <ion-icon ios="ios-list" md="md-list"></ion-icon> Categories</ion-item>
+<ion-grid class="browse-view">
+
+    <ion-row class="categories-outer">
+        <div *ngFor="let category of postCategory" col-6 class="col col-50 category-item-outer">
+            <div class="category-item-wrapper">
+                <div class="category-item-content" tappable (click)="onSelectCategory(category.slug)">
+                    <img [src]="category.image" />
+                    <div>
+                        <h1 class="category-title">{{category.slug}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-row>
+</ion-grid>

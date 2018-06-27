@@ -1,0 +1,60 @@
+<loader *ngIf="loading "></loader>
+<!-- error -->
+<div class="center" *ngIf="showErrorView" padding>
+    <div class="error ">
+        <ion-icon [name]="errorIcon"></ion-icon>
+        <p>{{ 'Connection unavailable' | translate }}</p>
+        <button ion-button color="primary" tappable (click)="doTry()">
+            {{ 'Try again' | translate }}
+        </button>
+    </div>
+</div>
+<!-- empty-->
+<div class="center" *ngIf="showEmptyView" padding>
+    <div class="error">
+        <ion-icon [name]="errorIcon"></ion-icon>
+        <p>{{ 'Album not found' | translate }}</p>
+    </div>
+</div>
+
+
+<div *ngIf="data.length">
+    <ion-list>
+        <ion-grid fixed>
+            <ion-row align-items-stretch lazy-load-images>
+                <ion-col col-6 col-md-2 align-self-stretch align-self-center *ngFor="let item of data">
+
+                    <!-- Create -->
+                    <div *ngIf="item.create">
+                        <ion-card tappable (click)="albumForm()">
+                            <img src="assets/img/albumnew.png"/>
+                            <ion-card-content>
+                                <ion-card-title>{{'Create Album'}}</ion-card-title>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+
+                    <div *ngIf="!item.create">
+                        <ion-card tappable (click)="openAlbum(item)"  >
+                            <img *ngIf="item.imageThumb"  [attr.data-src]="item.imageThumb" object-fit="scale-down" object-fit-watch-mq="true" tappable  (press)="pressPhoto(item)" >
+                           
+                            <!--<img *ngIf="!item.imageThumb" tappable (click)="openAlbum(item)" data-src="assets/img/albumnone.png" object-fit="contain" object-fit-watch-mq="true" tappable (click)="openPhoto(item)">-->
+
+                            <!--<img tappable (click)="openAlbum(item)"
+                                 *ngIf="item.imageThumb"
+                                 [src]="item.imageThumb">
+                            <img *ngIf="!item.imageThumb" tappable (click)="openAlbum(item)" src="assets/img/albumnone.png"/>-->
+                            <ion-card-content>
+                                <ion-card-title>
+                                    {{item.title}}
+                                </ion-card-title>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+</div>

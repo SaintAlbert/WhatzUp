@@ -1,0 +1,101 @@
+<div  [ngClass]="getCategory(item.categoryId)">
+<ion-card [ngClass]="getCategory(item.categoryId)">
+    <ion-item >
+        <ion-avatar tappable (click)="openProfile(item.user.username)" item-left>
+            <!--<img *ngIf="item.user.photo" [src]="item.user.photo" width="40px" height="40px">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">-->
+            <img *ngIf="item.user.photo" [attr.data-src]="item.user.photo">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">
+        </ion-avatar>
+        <h2 tappable (click)="openProfile(item.user.username)">{{item.user.name || item.user.username }}</h2>
+        <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+        <button tappable (click)="openPopover($event)" ion-button large clear item-right>
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+
+    </ion-item>
+    <div class="wrapper categories-outer category-item-outer post-category" >
+        <button class="card-tag-category-right post-category "  [ngClass]="getCategory(item.categoryId)" tappable (click)="onSelectCategory(item.category)">
+            <ion-icon name="calendar-outline"></ion-icon>
+            {{item.category}}
+        </button>
+      
+        <!--<img-progressive class="img-gallery"
+                         [src]="item['image']"
+                         [srcLow]="item['imageLow']" tappable (click)="openPhoto(item)">
+        </img-progressive>-->
+        <!--<div class="img-gallery" tappable (click)="openPhoto(item)">
+            <img [attr.data-src]="item.imageLow" object-fit="contain"  object-fit-watch-mq="true" >
+            </div>-->
+        <!--div  class="img-gallery"  style="max-height:350px!important">
+            <img [attr.data-src]="item.image" object-fit="fill" object-fit-watch-mq="true" tappable (click)="openPhoto(item)">
+        </div>-->
+        <div class="imgBox">
+            <span><ion-spinner name="ios-small" ></ion-spinner></span>
+            <img [attr.data-src]="item.image" object-fit="cover" object-fit-watch-mq="true"  tappable (click)="openPhoto(item)">
+           
+        </div>
+
+
+    </div>
+    <ion-item color="light">
+        <h2 *ngIf="!loading">{{item.title | translate}}</h2>
+        <ion-note item-end  >
+            <h2>
+                <strong *ngIf="!item.priceType">
+                    <!--<ion-icon name="ios-cash-outline"></ion-icon>-->
+                    {{item.price[0].Price | currency:getCode(item.code):true:'1.2-2'}}
+                </strong>
+                <strong *ngIf="item.priceType">
+                    <ion-icon name="ios-cash-outline"></ion-icon>
+                    Free
+                </strong>
+            </h2>
+        </ion-note>
+    </ion-item>
+
+    <button class="card-tag-country-right post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="onSelectCountryCategory(item.address.country,2)">
+        <span>
+            <ion-icon name="globe-outline"></ion-icon>
+            {{item.address.country}}
+        </span>
+    </button>
+    <button class="card-tag-country-left post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="onSelectCountryCategory(item.address.city,1)">
+        <span>
+            <ion-icon name="pin-outline"></ion-icon>
+            {{item.address.city}}
+        </span>
+    </button>
+    <ion-item class="item-buttons ">
+        <button [disabled]="item.loading" ion-button large clear tappable (click)="onLike(item)" >
+            <ion-icon  *ngIf="!item.isLiked" large name="ios-heart-outline"></ion-icon>
+            <ion-icon *ngIf="item.isLiked" large name="ios-heart"></ion-icon>
+        </button>
+        <button ion-button large clear tappable (click)="openComments(item)">
+            <ion-icon name="ios-text-outline"></ion-icon>
+        </button>
+        <button tappable (click)="sharePhoto(item)" ion-button large clear>
+            <ion-icon name="ios-return-right"></ion-icon>
+        </button>
+
+        <button [disabled]="item.loadingBookmark" tappable (click)="onBookmark(item)" ion-button item-right large clear>
+            <ion-icon *ngIf="!item.isBookmark" name="ios-bookmark-outline"></ion-icon>
+            <ion-icon *ngIf="item.isBookmark" name="ios-bookmark"></ion-icon>
+        </button>
+
+
+    </ion-item>
+
+    <ion-item >
+        <ion-note tappable (click)="onLike(item)">
+            <ion-icon name="ios-heart" ></ion-icon>
+            {{item.likesTotal}} {{'likes' | translate}}
+        </ion-note>
+        <ion-note item-end tappable (click)="openComments(item)">
+            <ion-icon name="ios-text" ></ion-icon>
+            {{item.comments.length}} {{'comments' | translate}}
+        </ion-note>
+    </ion-item>
+</ion-card>
+
+</div>

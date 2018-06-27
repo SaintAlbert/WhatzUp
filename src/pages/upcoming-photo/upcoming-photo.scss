@@ -1,0 +1,89 @@
+upcoming-photo {
+    .content {
+        /*background-color: #f7f7f7;*/
+         margin-bottom: 56px;
+        ion-item {
+          
+            .label {
+                margin: 0;
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+                padding:0px!important;
+            }
+
+            .item-inner {
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+                padding:0px!important;
+            }
+        }
+    }
+      .avatar-modal {
+    width: 50px;
+    border-radius: 100px;
+  }
+
+  .username-modal {
+    margin-bottom: 10px !important;
+    padding-bottom: 10px;
+    background: black;
+    bottom: 50px !important;
+  }
+  .no-padding {
+    padding: 0px !important;
+    border:0px!important;
+}
+   .no-padding-Right {
+    padding-right: 0px !important;
+     border:0px!important;
+}
+   no-padding-back{
+       padding-right: 0px !important;
+     border:0px!important;
+      /*padding-left: 3px !important;*/
+   }
+    /*.scroll-content {
+    
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+    }*/
+
+    ion-footer .item-buttons {
+        height: 40px !important;
+        /*ion-icon {
+                color: primary !important;
+            }*/
+    }
+
+    .listitem {
+        border: 0 !important;
+
+        background: #3c353c !important;
+    }
+
+   
+    /*Category*/
+    .card-tag {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        border-radius: 2px 0 0 2px;
+        padding: 1px 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        max-width: 160px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+  
+    /*.background {
+        background: #00786c;
+        background: -webkit-gradient(linear, left top, left bottom, from(#00786c), color-stop(99%, #c8dc3d));
+        background: linear-gradient(to bottom, #00786c 0%, #c8dc3d 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00786c', endColorstr='#c8dc3d', GradientType=0);
+    }*/
+}

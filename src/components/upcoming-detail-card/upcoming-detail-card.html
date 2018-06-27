@@ -1,0 +1,151 @@
+<ion-card  [ngClass]="getCategory(item.categoryId)">
+
+    <ion-item class="headerNav" [hidden]="isModal">
+
+        <ion-avatar tappable (click)="openProfile(item.user.username)" item-left>
+
+            <img *ngIf="item.user.photo" [src]="item.user.photo" width="40px" height="40px">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">
+        </ion-avatar>
+        <h2 tappable (click)="openProfile(item.user.username)">{{item.user.name || item.user.username }}</h2>
+        <p>{{item.address.country}}</p>
+        <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+        <button tappable (click)="openPopover($event)" ion-button large clear item-right [ngClass]="getCategory(item.categoryId)">
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-item>
+
+    <div class="imgBox">
+        <div>
+            <img [src]="item['image']" imageViewer  object-fit="fill" object-fit-watch-mq="true">
+        </div>
+    </div>
+    <ion-item-divider>
+        <h2 *ngIf="!loading">{{item.title | translate}}</h2>
+        <ion-note item-end>
+            <!--<ion-icon name="time"></ion-icon>-->
+            <span>{{item.startDate | date:'dd MMM yyyy'}} <br /> @{{item.startDate | date:'HH:mm a'}}</span>
+        </ion-note>
+
+    </ion-item-divider>
+    <ion-item  text-wrap>
+        <ion-note>
+            <ion-icon name="calendar-outline"></ion-icon> {{'Category' | translate}}
+        </ion-note>
+        <ion-note item-end>
+            <span>{{item.category}}</span>
+        </ion-note>
+    </ion-item>
+    <ion-item class="country" text-wrap>
+        <button class="card-tag-country-right post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="onSelectCountryCategory(item.address.country,2)">
+            <span>
+                <ion-icon name="globe-outline"></ion-icon>
+                {{item.address.country}}
+            </span>
+        </button>
+        <button class="card-tag-country-left post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="onSelectCountryCategory(item.address.city,1)">
+            <span>
+                <ion-icon name="pin-outline"></ion-icon>
+                {{item.address.city}}
+            </span>
+        </button>
+    </ion-item>
+
+    <ion-item>
+        <ion-note>
+            <ion-icon name="time-outline"></ion-icon>
+            {{'End Date ' | translate}}
+        </ion-note>
+        <ion-note item-end>
+            <span>{{item.endDate | date:'dd MMM yyyy'}}</span>
+            <!--@{{item.endDate | date:'HH:mm a'}}-->
+        </ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-note>
+            <ion-icon name="person-outline"></ion-icon>
+            {{'Contact' | translate}}
+        </ion-note>
+        <ion-note item-end>
+            <span>{{item.contact }}</span>
+        </ion-note>
+    </ion-item>
+    <ion-item-divider style="padding-top:0px!important;"><strong>{{'Price' | translate}}</strong></ion-item-divider>
+    <ion-item *ngIf="item.priceType">
+        <ion-note>
+            <ion-icon name="ios-cash-outline"></ion-icon>
+            {{'Standard ' | translate}}
+        </ion-note>
+        <ion-note item-end>
+            <span> {{'Free' | translate}}</span>
+        </ion-note>
+    </ion-item>
+
+
+    <ion-item *ngFor="let att of item.price">
+        <ion-note text-wrap>
+            <ion-icon name="ios-cash-outline"></ion-icon> {{att.label | translate}}
+        </ion-note>
+        <ion-note item-end>
+            <span>{{att.Price | currency:getCode(item.code) :true:'1.2-2'}}</span>
+        </ion-note>
+    </ion-item>
+
+    <ion-item-divider>
+        <strong>
+            Address
+        </strong>
+        <!--<span class="card-tag-country-left  post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="startExternalMap(item.address.geo,item.address.formatted_address)">
+            <ion-icon name="map-outline"></ion-icon> Direction
+        </span>-->
+        <span class="card-tag-country-right  post-category " [ngClass]="getCategory(item.categoryId)" tappable (click)="startExternalMap(item.address.geo,item.address.formatted_address)">
+            <ion-icon name="navigate"></ion-icon> Direction
+        </span>
+
+    </ion-item-divider>
+    <ion-item text-wrap>
+
+        <div class="mycontent" text-wrap> {{item.address.formatted_address}}</div>
+        <img [src]="item.address.image" style="padding-top:5px;" tappable (click)="startExternalMap(item.address.geo,item.address.formatted_address)" />
+
+    </ion-item>
+
+    <ion-item-divider style="padding-top:0px!important;" [ngClass]="getCategory(item.categoryId)"><strong>{{'Description' | translate}}</strong></ion-item-divider>
+    <ion-card-content>
+        <div [innerHTML]="item.description | cdvphotolibrary:'html'"></div>
+        <!--<div class="mycontent" [innerHTML]="item.description | cdvphotolibrary:'html'">
+          
+        </div>-->
+    </ion-card-content>
+    <ion-item>
+        <ion-note [ngClass]="getCategory(item.categoryId)">
+            <ion-icon name="ios-heart"></ion-icon>
+            {{item.likesTotal}} {{'likes' | translate}}
+        </ion-note>
+        <ion-note item-end [ngClass]="getCategory(item.categoryId)">
+            <ion-icon name="ios-text"></ion-icon>
+            {{item.comments.length}} {{'comments' | translate}}
+        </ion-note>
+    </ion-item>
+
+
+    <ion-item-divider><strong>Comments</strong></ion-item-divider>
+    <div *ngIf="comment">
+
+        <div class="message-wrapper" *ngFor="let item of comment">
+            <div>
+                <img class="profile-pic" [ngClass]="item.class" [src]="item.photo">
+                <div class="chat-bubble " [ngClass]="item.class">
+                    <div class="message"> {{item.get('text')}}</div>
+                    <div class="message-detail">
+                        <span class="bold">{{item.get('profile').get('name')}}</span>,
+                        <span>{{item.createdAt | amTimeAgo }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</ion-card>

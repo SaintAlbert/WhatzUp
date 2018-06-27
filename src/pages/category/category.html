@@ -1,0 +1,20 @@
+<ion-header >
+    <ion-navbar color="none">
+
+        <ion-title [ngClass]="title" >
+            {{title | translate}}
+        </ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content  >
+    <ion-refresher (ionRefresh)="doRefresh($event)" >
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <upcoming-list [event]="eventName" ></upcoming-list>
+    <!--<ion-infinite-scroll *ngIf="moreItem" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>-->
+</ion-content>

@@ -1,0 +1,46 @@
+.ios, .md {
+     background-color: map-get($colors, dark) !important;
+    content-drawer {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10 !important;
+           background-color: map-get($colors, dark) !important;
+        //box-shadow: 0px -4px 22px -8px rgba(0,0,0,0.75);
+
+        .selected img {
+            opacity: 0.4;
+        }
+
+        ion-header {
+            background-color: map-get($colors, dark) !important;
+
+            ion-navbar {
+                background-color: map-get($colors, dark) !important;
+            }
+        }
+
+        ion-content {
+            padding: 0px !important;
+            background-color: #fff !important;
+            ion-col{
+                border:solid 1px #000;
+                h1{font-weight:bold;}
+                text-align:center;
+                img{
+                    height:40px;
+                    width:40px;
+                }
+            }
+        }
+
+        ion-header {
+            // height:20px!important;
+            ion-icon {
+                font-size: 2em;
+                margin-top: 0 !important;
+                padding-top: 0px !important;
+            }
+        }
+    }
+}

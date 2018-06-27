@@ -1,0 +1,76 @@
+<ion-tabs tabsPlacement="bottom"
+          preloadTabs="true"
+          #myTabs>
+    <ion-tab tappable [root]="tabHome" tabIcon="home"></ion-tab>
+    <ion-tab tappable [root]="tabSearch" tabIcon="search"></ion-tab>
+    <!--<ion-tab [root]="tabCapture" tabIcon="camera"></ion-tab>-->
+    <!--<ion-tab [root]="tabChat" tabIcon="ios-chatbubbles" [tabBadge]="tabChatActivityBadge" tabBadgeStyle="danger"></ion-tab>-->
+    <ion-tab tappable [root]="tabActivity" tabIcon="notifications" [tabBadge]="tabActivityBadge" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tappable [root]="tabProfile" tabIcon="person"></ion-tab>
+</ion-tabs>
+<content-drawer [options]="drawerOptions" [event]="_eventName">
+
+    <ion-list>
+        <ion-list-header>
+            <ion-icon color="primary" name="calendar-outline"></ion-icon> {{'Share new Upcoming Event' | translate}}
+        </ion-list-header>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col width-50 tappable (click)="OpenCameraShare('photoshareupcoming')">
+                        <img src="assets/img/camera.png" />
+                        <h3>Take Picture</h3>
+                    </ion-col>
+                    <ion-col width-50 tappable (click)="OpenGalaryShare('photoshareupcoming')">
+                        <img src="assets/img/stack-of-photos.png" />
+                        <h3>Use Galary</h3>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-list-header>
+            <ion-icon color="primary" name="clock-outline"></ion-icon> {{'Share new Photo & Post' | translate}}
+        </ion-list-header>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col  tappable (click)="OpenCameraShare('photoshare')">
+                        <img src="assets/img/camera.png" />
+                        <h3>Take Picture</h3>
+                    </ion-col>
+                    <ion-col  tappable (click)="OpenGalaryShare('photoshare')">
+                        <img src="assets/img/stack-of-photos.png" />
+                        <h3>Use Galary</h3>
+                    </ion-col>
+                    <ion-col tappable (click)="sharePostOnly('photoshare')">
+                        <img src="assets/img/post-img.png" />
+                        <h3>Write Post</h3>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <!--<ion-list-header>
+            <ion-icon color="primary" name="create-outline"></ion-icon> {{ 'Share Post message' | translate}}
+        </ion-list-header>
+        <ion-item>
+            <ion-grid>
+                <ion-row >
+                    <ion-col width-50 tappable (click)="sharePostOnly('photoshare')">
+                        <img src="assets/img/post-img.png" />
+                        <h3>Write Post</h3>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>-->
+        <!--<button ion-item tappable (click)="closeDrawer()">  <ion-icon color="primary" name="close"></ion-icon> {{ 'Cancel' | translate}}</button>-->
+    </ion-list>
+
+</content-drawer>
+
+<input *ngIf="!cordova"
+       #inputFile
+       type="file"
+       (change)="onChange($event)"
+       accept="image/x-png, image/gif, image/jpeg"
+       max-size="2048"
+       style="display: none;">

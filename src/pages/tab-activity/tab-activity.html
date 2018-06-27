@@ -1,0 +1,73 @@
+<ion-header>
+    
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button icon-only tappable (click)="onPagecamera($event)">
+                <ion-icon name="add"></ion-icon>
+            </button>
+
+        </ion-buttons>
+        <ion-title>{{'Activities'| translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <loader *ngIf="loading"></loader>
+    <!-- error -->
+    <div class="center" *ngIf="showErrorView" padding>
+        <div class="error ">
+            <ion-icon [name]="errorIcon"></ion-icon>
+            <p>{{ 'Connection unavailable' | translate }}</p>
+            <button ion-button color="primary" tappable (click)="doTry()">
+                {{ 'Try again' | translate }}
+            </button>
+        </div>
+    </div>
+    <!-- empty-->
+    <div class="center" *ngIf="showEmptyView" padding>
+        <div class="error">
+            <ion-icon [name]="errorIcon"></ion-icon>
+            <p>{{ 'Activity not found' | translate }}</p>
+        </div>
+    </div>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item text-wrap *ngFor="let item of data" class='item-text-wrap'>
+            <ion-avatar tappable (click)="profile(item.user.username)" item-left>
+                <img *ngIf="item.user.photo" [src]="item.user.photo.url()" width="40px"
+                            height="40px">
+                <img *ngIf="!item.user.photo" src="assets/img/user.png">
+            </ion-avatar>
+            <h3>{{item.user.username}}</h3>
+            <p style="white-space: normal!important;">{{item.action | translate }}</p>
+            <div *ngIf="!item.item.get('gallery') && !item.item.get('upcoming')" item-right>
+                <div *ngIf="!item.user.isFollow" item-right>
+                    <button tappable (click)="follow(item)" [disabled]="item.loading" ion-button outline>
+                        + {{'Follow' | translate }}
+                    </button>
+                </div>
+                <div *ngIf="item.user.isFollow" item-right>
+                    <button tappable (click)="follow(item)"  [disabled]="item.loading" ion-button>
+                        - {{'Unfollow' | translate }}
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="item.item.get('upcoming')" item-right>
+                <ion-thumbnail>
+                    <img tappable (click)="openUpcoming(item.item.get('upcoming').id)" [src]="item.item.get('upcoming').get('imageThumb').url()" >
+                </ion-thumbnail>
+            </div>
+
+            <div *ngIf="item.item.get('gallery')" item-right>
+                <ion-thumbnail>
+                    <img tappable (click)="openPhoto(item.item.get('gallery').id)" [src]="item.item.get('gallery').get('imageThumb').url()">
+                </ion-thumbnail>
+            </div>
+
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll *ngIf="moreItem" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

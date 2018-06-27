@@ -1,0 +1,12 @@
+<ion-item *ngFor="let item of uploads; let i=index; ">
+  <ion-avatar item-left *ngIf="item.form.image"><img [src]="item.form.image"></ion-avatar>
+  <h2>{{item.form.title}}</h2>
+  <ion-spinner *ngIf="item.loading" item-right></ion-spinner>
+  <button tappable (click)="retry(i)" ion-button *ngIf="!item.loading && !typeupcoming" color="primary" outline item-right>Retry
+  </button>
+    <button tappable (click)="processUpcoming(i)" ion-button *ngIf="!item.loading && typeupcoming" color="primary" outline item-right>
+        Retry
+    </button>
+  <button tappable (click)="cancel(i)" ion-button *ngIf="!item.loading" color="primary" outline item-right>Cancel
+  </button>
+</ion-item>

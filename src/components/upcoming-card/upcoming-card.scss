@@ -1,0 +1,199 @@
+upcoming-card {
+    display: flex;
+    flex: 1;
+    /*min-height: 550px;*/
+    /*max-width: 640px;*/
+     width: 100%;
+    ion-img {
+        //object-fit:scale-down;
+        height: 300px;
+        max-height: 400px;
+        width: 100%;
+    }
+
+    ion-card {
+        flex: 1 auto;
+        margin: 0 !important;
+        width: 100%!important;
+        
+        ion-avatar img {
+            $avatar-size: 40px;
+            height: $avatar-size;
+            min-width: $avatar-size !important;
+            min-height: $avatar-size !important;
+        }
+
+        img-progressive {
+            /*min-height: 350px;*/
+        }
+
+        ion-card-content {
+            display: flex;
+            align-content: center;
+            justify-content: flex-start;
+            min-height: 50px;
+        }
+
+        .item-buttons {
+            padding-left: 0;
+            height: 50px !important;
+
+            .button-large-ios, .button-large-md {
+                padding: 0 .5em;
+            }
+
+            .label-ios, .label-md {
+                margin: 0;
+            }
+        }
+
+        ion-list {
+            .item-block {
+                min-height: 2.4rem;
+            }
+
+            ion-item {
+                border: none;
+
+                ion-label {
+                    font-size: 0.8em;
+                    margin: 7px 0 !important;
+                }
+            }
+        }
+
+    }
+
+    .left {
+        width: 50%;
+        float: left;
+    }
+
+    .right {
+        width: 50%;
+        float: right !important;
+        text-align: right !important;
+        padding-right: 0px !important;
+        right: 0 !important;
+    }
+
+    ion-list-header {
+        background: transparent !important;
+        min-height: 5px !important;
+    }
+
+    .no-padding {
+        padding: 0px !important;
+        min-height: 2em !important;
+        margin: 0px !important;
+    }
+
+
+    .wrapper {
+        position: relative;
+    }
+
+    .wrapper p {
+        background-color: rgba(#3c353c, 0.5); //#3c353c; //rgba(0, 0, 0, 0.5);// black;
+        bottom: 0%;
+        /*color: white;*/
+        font-family: Roboto;
+        font-size: 1.25em;
+        left: 0;
+        padding: 0.25em 0.75em;
+        position: absolute;
+        width: 100%;
+        font-style: oblique;
+    }
+
+    .categories-outer {
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 2px;
+    }
+
+    .categories-outer .category-item-outer {
+        padding: 2px;
+    }
+
+    .category-item-wrapper {
+        padding-top: 100%;
+        height: 0;
+        position: relative;
+    }
+
+    .category-item-wrapper .category-item-content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+    }
+
+    .category-item-wrapper .category-title {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: 14px;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+        border-top: 1px solid rgba(153, 153, 153, .6);
+        border-bottom: 1px solid rgba(153, 153, 153, .6);
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        width: 80%;
+        left: 10%;
+        top: -webkit-calc(50% - 20px);
+        top: calc(50% - 20px);
+        height: 40px;
+        line-height: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    /*Category*/
+    .card-tag {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        border-radius: 2px 0 0 2px;
+        padding: 1px 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        max-width: 160px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .card-tag-country {
+        position: absolute;
+        /*right: 0;*/
+        /*bottom: 0px;*/
+        border-radius: 2px 0 0 2px;
+        padding: 1px 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        max-width: 160px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        ion-icon {
+            color: #fff !important;
+            font-size: large !important;
+        }
+    }
+    /*span {
+            ion-icon {
+                color: #fff !important;
+                font-size: large !important;
+            }
+        }*/
+}

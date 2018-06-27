@@ -1,0 +1,174 @@
+<ion-header class="hm_bg_color hm_header">
+    <ion-navbar color="none">
+        <!--<button ion-button class="hm_header_btn hm_float_left hm_back_icon" (click)="goBack()"></button>-->
+        <ion-title>
+            <div >
+                All Services
+            </div>
+        </ion-title>
+        <!--<button ion-button class="hm_header_btn hm_float_right hm_search_icon"></button-->>
+        <div class="hm_clear"></div>
+        </ion-navbar>
+</ion-header>
+<ion-content class="hm_sign_bg">
+    <div class="hm_services">
+        <div class="hm_service_menu_bar">
+            <ion-scroll scrollX="true" style="height:45px;">
+                <ul>
+                    <li [ngClass]="{'active' : slidertab == 0}" (click)="goToSlide(0)"><a class="beauty"><span class="active" [hidden]="slidertab != 0">.</span>Beauty</a></li>
+                    <li [ngClass]="{'active' : slidertab == 1}" (click)="goToSlide(1)"><a class="health"><span class="active" [hidden]="slidertab != 1">.</span>Health</a></li>
+                    <li [ngClass]="{'active' : slidertab == 2}" (click)="goToSlide(2)"><a class="lesson"><span class="active" [hidden]="slidertab != 2">.</span>Lessons</a></li>
+                    <li [ngClass]="{'active' : slidertab == 3}" (click)="goToSlide(3)"><a class="homeservice"><span class="active" [hidden]="slidertab != 3">.</span>Home Services</a></li>
+                    <li [ngClass]="{'active' : slidertab == 4}" (click)="goToSlide(4)"><a class="business"><span class="active" [hidden]="slidertab != 4">.</span>Business</a></li>
+                    <li [ngClass]="{'active' : slidertab == 5}" (click)="goToSlide(5)"><a class="event"><span class="active" [hidden]="slidertab != 5">.</span>Events</a></li>
+                    <li [ngClass]="{'active' : slidertab == 6}" (click)="goToSlide(6)"><a class="hobbie"><span class="active" [hidden]="slidertab != 6">.</span>Hobbies</a></li>
+                    <li [ngClass]="{'active' : slidertab == 7}" (click)="goToSlide(7)"><a class="repair"><span class="active" [hidden]="slidertab != 7">.</span>Repair</a></li>
+                    <div class="hm_clear"></div>
+                </ul>
+            </ion-scroll>
+        </div>
+        <div class="hm_service_content">
+            <ion-slides pager="false" #mySlider class="hm_service_slide" (ionSlideDidChange)="slideChanged()">
+                <ion-slide class="beauty">
+                    <div class="hm_service_list">
+
+                        <ul *ngFor="let g of handycatdata[0].item; let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(0,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+
+                    </div>
+                </ion-slide>
+                <ion-slide class="health">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[1].item;let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(1,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+
+                    </div>
+                </ion-slide>
+                <ion-slide class="lesson">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[2].item;let i = index;  let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(2,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+                <ion-slide class="homeservice">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[3].item;let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(3,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+                <ion-slide class="business">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[4].item;let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(4,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+                <ion-slide class="event">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[5].item;let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(5,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+                <ion-slide class="hobbie">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[6].item;let i = index; let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(6,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+                <ion-slide class="repair">
+                    <div class="hm_service_list">
+                        <ul *ngFor="let g of handycatdata[7].item;let i = index;  let last = last;">
+                            <li>
+                                <div class="hm_service_div" tappable (click)="openService(7,i)">
+                                    <img [src]="g.src">
+                                </div>
+                                <p>{{g.name}}</p>
+                            </li>
+                            <li *ngIf="last">
+                                <div class="hm_service_more"></div>
+                                <p>Show more</p>
+                            </li>
+                            <div *ngIf="last" class="hm_clear"></div>
+                        </ul>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header no-shadow >
+  <ion-navbar color="none">
+    <ion-title>
+      <button ion-button
+              color="blue"
+              round
+              small
+              tappable (click)="modalLanguage()"> {{'Language' | translate}}
+      </button>
+    </ion-title>
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button tappable (click)="onSkip(slide)">{{'Skip'| translate}}</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content class="background" no-bounce>-->
+<ion-content class="hm_intro_bg" no-bounce>
+  <ion-slides #slide
+              pager='true'
+              effect='slide'
+              paginationType='progress'
+              (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let slide of slides">
+      <div class="text-content">
+        <p>{{slide.title | translate}}</p>
+      </div>
+      <div class="phone android ">
+        <img [src]="slide.image" class="slide-image" />
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="text-content">
+        <div class="container">
+
+          <!--<img class="logo" src="assets/img/logo.svg" alt="Photogram">-->
+          <ion-avatar>
+            <img class="logo" src="assets/img/logo.png" style="height:100px;width:100px;" />
+
+          </ion-avatar>
+          <button ion-button block color="blue" round icon-left tappable (click)="onLogin()">
+            <ion-icon name="person"></ion-icon>
+            {{'Login' | translate}}
+          </button>
+          <button ion-button block color="orange" round icon-left tappable (click)="onRegister()">
+            <ion-icon name="contact"></ion-icon>
+            {{'Signup' | translate}}
+          </button>
+          <button-facebook-login (onLogin)="onTabsPage()"
+                                 (onMerge)="onTabsPage()"></button-facebook-login>
+        </div>
+        <p tappable (click)="onTerms()">
+          {{
+'By logging in or registering, you are agreeing to our Terms and Conditions' |
+          translate
+          }}
+        </p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

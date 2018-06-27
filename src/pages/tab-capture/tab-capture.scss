@@ -1,0 +1,57 @@
+page-tab-capture {
+    ion-content{
+         background-color: transparent !important;
+    }
+     canvas {
+     /*background-color:rgba(0, 0, 0, 0.8);//#000000;*/
+           width: 100%!important;
+           height:100% !important;
+        margin: 0;
+        /*max-width: 100%;*/
+        padding-top:0 !important;
+        position: absolute;
+        display:none;
+    }
+
+     
+    div#captureBtn {
+        width: 60px;
+        height: 60px;
+        border: 2px solid white;
+        border-color: map-get($colors, primary) !important;
+        border-radius: 50%;
+        background: none;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 20px;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    div#captureBtn > span {
+        font-size: 11px;
+        text-align: center;
+        top: 14px !important;
+        position: absolute;
+        color:#fff;
+        /*color: #rgba(0, 0, 0, 0.2);*/
+    }
+
+
+    div#captureBtn:active {
+        width: 80px;
+        height: 80px;
+        /*border: 7px solid white;*/
+        border-color: map-get($colors, primary) !important;
+        border-radius: 50%;
+        background: map-get($colors, primary) !important;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 20px;
+        z-index: 1;
+        cursor: pointer;
+    }
+    ion-fab{
+        color:transparent!important;
+    }
+}

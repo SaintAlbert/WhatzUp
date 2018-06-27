@@ -1,0 +1,47 @@
+<ion-header *ngIf="!cordova">
+    <ion-navbar color="none">
+        <ion-title>Capture</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen style="background-color: transparent !important;">
+    
+
+    <div *ngIf="cordova">
+        <div id="captureBtn" (tap)="onCanvasStop()" #capturespan>
+            <span>Tap for photo</span>
+        </div>
+
+        <!--<ion-fab left top small>
+            <button ion-fab mini color="transparent" (tap)="existVideo()"><ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon></button>
+        </ion-fab>-->
+
+        <ion-fab right bottom small>
+            <button ion-fab mini color="transparent" (tap)="onSwitchGalary()"><ion-icon ios="ios-reverse-camera" md="md-reverse-camera"></ion-icon></button>
+        </ion-fab>
+
+        <ion-fab left bottom small (tap)="openCapture()">
+            <button ion-fab mini color="transparent"><ion-icon ios="ios-images" md="md-images"></ion-icon></button>
+        </ion-fab>
+        <canvas class="raster" id="fullsize" #fullsize></canvas>
+    </div>
+
+
+        <!-- empty-->
+        <div class="center" *ngIf="!cordova" padding>
+            <div class="error">
+                <ion-icon name="camera"></ion-icon>
+                <p>{{ 'Upload Photos ' | translate }}</p>
+            </div>
+        </div>
+      
+
+    <input *ngIf="!cordova"
+           #inputFile
+           type="file"
+           (change)="onChange($event)"
+           accept="image/x-png, image/gif, image/jpeg"
+           max-size="2048"
+           style="display: none;">
+
+</ion-content>

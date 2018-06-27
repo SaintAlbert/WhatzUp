@@ -1,0 +1,443 @@
+page-category {
+     .Baby {
+        ion-icon {
+            color: map-get($categories, Baby);
+        }
+    }
+
+    .backgrounds.Baby {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Baby)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Baby) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Baby)', GradientType=0);
+        color: #fff;
+    }
+
+    .Birthday {
+        ion-icon {
+            color: map-get($categories, Birthday);
+        }
+    }
+
+    .backgrounds.Birthday {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Birthday)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Birthday) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Birthday)', GradientType=0);
+        color: #fff;
+    }
+
+    .Pub {
+        ion-icon {
+            color: map-get($categories, Pub);
+        }
+    }
+
+    .backgrounds.Pub {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Pub)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Pub) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Pub)', GradientType=0);
+        color: #fff;
+    }
+
+    .Entertainment {
+
+        ion-icon {
+            color: map-get($categories, Entertainment);
+        }
+    }
+
+    .backgrounds.Entertainment {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Entertainment)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Entertainment) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Entertainment)', GradientType=0);
+        color: #fff;
+    }
+
+    .Sports {
+
+        ion-icon {
+            color: map-get($categories, Sports);
+        }
+    }
+
+    .backgrounds.Sports {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Sports)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Sports) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Sports)', GradientType=0);
+        color: #fff;
+    }
+
+    .Business {
+        ion-icon {
+            color: map-get($categories, Business);
+        }
+    }
+
+    .backgrounds.Business {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Business)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Business) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Business)', GradientType=0);
+        color: #fff;
+    }
+
+
+    .Fashion {
+        ion-icon {
+            color: map-get($categories, Fashion);
+        }
+    }
+
+    .backgrounds.Fashion {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Fashion)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Fashion) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Fashion)', GradientType=0);
+        color: #fff;
+    }
+
+    .Art {
+        ion-icon {
+            color: map-get($categories, Art);
+        }
+    }
+
+    .backgrounds.Art {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Art)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Art) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Art)', GradientType=0);
+        color: #fff;
+    }
+
+    .World {
+        ion-icon {
+            color: map-get($categories, World);
+        }
+    }
+
+    .backgrounds.World {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, World)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, World) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, World)', GradientType=0);
+        color: #fff;
+    }
+
+    .Campus {
+        ion-icon {
+            color: map-get($categories, Campus);
+        }
+    }
+
+    .backgrounds.Campus {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Campus)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Campus) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Campus)', GradientType=0);
+        color: #fff;
+    }
+    /*ffffffff*/
+    .Charity {
+
+        ion-icon {
+            color: map-get($categories, Charity);
+        }
+    }
+
+    .backgrounds.Charity {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Charity)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Charity) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Charity)', GradientType=0);
+        color: #fff;
+    }
+
+    .Comedy {
+
+        ion-icon {
+            color: map-get($categories, Comedy);
+        }
+    }
+
+    .backgrounds.Comedy {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Comedy)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Comedy) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Comedy)', GradientType=0);
+        color: #fff;
+    }
+
+    .Community {
+        ion-icon {
+            color: map-get($categories, Community);
+        }
+    }
+
+    .backgrounds.Community {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Community)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Community) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Community)', GradientType=0);
+        color: #fff;
+    }
+
+    .Culture {
+
+        ion-icon {
+            color: map-get($categories, Culture);
+        }
+    }
+
+    .backgrounds.Culture {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Culture)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Culture) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Culture)', GradientType=0);
+        color: #fff;
+    }
+
+    .Education {
+
+        ion-icon {
+            color: map-get($categories, Education);
+        }
+    }
+
+    .backgrounds.Education {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Education)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Education) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Education)', GradientType=0);
+        color: #fff;
+    }
+
+    .Fashion {
+        ion-icon {
+            color: map-get($categories, Fashion);
+        }
+    }
+
+    .backgrounds.Fashion {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Fashion)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Fashion) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Fashion)', GradientType=0);
+        color: #fff;
+    }
+
+    .Festival {
+        ion-icon {
+            color: map-get($categories, Festival);
+        }
+    }
+
+    .backgrounds.Festival {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Festival)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Festival) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Festival)', GradientType=0);
+        color: #fff;
+    }
+
+    .Food {
+        ion-icon {
+            color: map-get($categories, Food);
+        }
+    }
+
+    .backgrounds.Food {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Food)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Food) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Food)', GradientType=0);
+        color: #fff;
+    }
+
+    .Government {
+        ion-icon {
+            color: map-get($categories, Government);
+        }
+    }
+
+    .backgrounds.Government {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Government)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Government) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Government)', GradientType=0);
+        color: #fff;
+    }
+
+    .Highlights {
+        ion-icon {
+            color: map-get($categories, Highlights);
+        }
+    }
+
+    .backgrounds.Highlights {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Highlights)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Highlights) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Highlights)', GradientType=0);
+        color: #fff;
+    }
+
+    .Holiday {
+        ion-icon {
+            color: map-get($categories, Holiday);
+        }
+    }
+
+    .backgrounds.Holiday {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Holiday)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Holiday) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Holiday)', GradientType=0);
+        color: #fff;
+    }
+
+    .Lifestyle {
+        ion-icon {
+            color: map-get($categories, Lifestyle);
+        }
+    }
+
+    .backgrounds.Lifestyle {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Lifestyle)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Lifestyle) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Lifestyle)', GradientType=0);
+        color: #fff;
+    }
+
+    .Film {
+        ion-icon {
+            color: map-get($categories, Film);
+        }
+    }
+
+    .backgrounds.Film {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Film)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Film) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Film)', GradientType=0);
+        color: #fff;
+    }
+
+    .Music {
+        ion-icon {
+            color: map-get($categories, Music);
+        }
+    }
+
+    .backgrounds.Music {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Music)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Music) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Music)', GradientType=0);
+        color: #fff;
+    }
+
+    .Wedding {
+        ion-icon {
+            color: map-get($categories, Wedding);
+        }
+    }
+
+    .backgrounds.Wedding {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Wedding)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Wedding) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Wedding)', GradientType=0);
+        color: #fff;
+    }
+
+    .Night {
+        ion-icon {
+            color: map-get($categories,Night);
+        }
+    }
+
+    .backgrounds.Night {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Night)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Night) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Night)', GradientType=0);
+        color: #fff;
+    }
+
+    .Politics {
+        ion-icon {
+            color: map-get($categories,Politics);
+        }
+    }
+
+    .backgrounds.Politics {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Politics)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Politics) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Politics)', GradientType=0);
+        color: #fff;
+    }
+
+    .Spirituality {
+        ion-icon {
+            color: map-get($categories, Spirituality);
+        }
+    }
+
+    .backgrounds.Spirituality {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Spirituality)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Spirituality) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Spirituality)', GradientType=0);
+        color: #fff;
+    }
+
+    .Technology {
+        ion-icon {
+            color: map-get($categories, Technology);
+        }
+    }
+
+    .backgrounds.Technology {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Technology)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Technology) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Technology)', GradientType=0);
+        color: #fff;
+    }
+
+    .Theatre {
+        ion-icon {
+            color: map-get($categories, Theatre);
+        }
+    }
+
+    .backgrounds.Theatre {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Theatre)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Theatre) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Theatre)', GradientType=0);
+        color: #fff;
+    }
+
+    .Travel {
+        ion-icon {
+            color: map-get($categories, Travel);
+        }
+    }
+
+    .backgrounds.Travel {
+        background: #E1DFE0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#E1DFE0), color-stop(99%, map-get($categories, Travel)));
+        background: linear-gradient(to bottom, #E1DFE0 0%, map-get($categories, Travel) 99%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E1DFE0 ', endColorstr='map-get($categories, Travel)', GradientType=0);
+        color: #fff;
+    }
+
+}

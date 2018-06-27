@@ -1,0 +1,70 @@
+
+<ion-card>
+    <ion-item>
+        <ion-avatar tappable (click)="openProfile(item.user.username)" item-left>
+            <!--<img *ngIf="item.user.photo" [src]="item.user.photo"   width="40px" height="40px">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">-->
+            <img *ngIf="item.user.photo" [attr.data-src]="item.user.photo">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">
+        </ion-avatar>
+        <h2 tappable (click)="openProfile(item.user.username)">{{item.user.name || item.user.username }}</h2>
+        <ion-note item-right>{{item.createdAt | amTimeAgo}}</ion-note>
+        <p>{{item.address.country}}</p>
+        <button tappable (click)="openPopover($event)" ion-button large clear item-right>
+            <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-item>
+
+
+    <!--<img-progressive class="img-gallery"
+                     [src]="item['image']"
+                     [srcLow]="item['imageLow']"  tappable (click)="openPhoto(item)">
+
+    </img-progressive>-->
+    <!--<div tappable (click)="openPhoto(item)" class="img-gallery"  style="max-height:350px!important">
+        <img [attr.data-src]="item.image" object-fit="fill"  object-fit-watch-mq="true">
+    </div>-->
+    <!--<div class="mybackground" tappable (click)="openPhoto(item)" [attr.data-background-src]="item.image" ></div>-->
+    <div *ngIf="item.image" class="imgBox" tappable (click)="openPhoto(item)">
+        <span><ion-spinner name="ios-small"></ion-spinner></span>
+        <img [attr.data-src]="item.image"  object-fit="cover"  object-fit-watch-mq="true" >
+       
+    </div>
+    <ion-card-content *ngIf="item.title" >
+    <!--<div class="mycontent"   [innerHTML]="item.title | cdvphotolibrary:'html'"></div>-->
+        <p  [innerHTML]="item.title | cdvphotolibrary:'html'"></p>
+   </ion-card-content>
+       
+
+    <ion-item class="item-buttons">
+        <button [disabled]="item.loading" ion-button large clear tappable (click)="onLike(item)">
+            <ion-icon *ngIf="!item.isLiked" large name="ios-heart-outline"></ion-icon>
+            <ion-icon *ngIf="item.isLiked" large name="ios-heart"></ion-icon>
+        </button>
+        <button ion-button large clear tappable (click)="openComments(item)">
+            <ion-icon name="ios-text-outline"></ion-icon>
+        </button>
+        <button tappable (click)="sharePhoto(item)" ion-button large clear>
+            <ion-icon name="ios-return-right"></ion-icon>
+        </button>
+        <button tappable (click)="openAlbum(item.album)" ion-button large clear>
+            {{item.album.title}}
+        </button>
+        <button [disabled]="item.loadingBookmark" tappable (click)="onBookmark(item)" ion-button item-right large clear>
+            <ion-icon *ngIf="!item.isBookmark" name="ios-bookmark-outline"></ion-icon>
+            <ion-icon *ngIf="item.isBookmark" name="ios-bookmark"></ion-icon>
+        </button>
+
+    </ion-item>
+    <ion-item>
+        <ion-note tappable (click)="onLike(item)">
+            <ion-icon name="ios-heart"></ion-icon>
+            {{item.likesTotal}} {{'likes' | translate}}
+        </ion-note>
+    </ion-item>
+    <div padding *ngIf="item.comments.length>0" tappable (click)="openComments(item)">
+        <p *ngFor="let comment of item.comments">
+            <b>{{comment.user.name}}</b> {{comment.text}}
+        </p>
+    </div>
+</ion-card>

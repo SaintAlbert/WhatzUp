@@ -1,0 +1,203 @@
+upcoming-detail-card {
+     display: normal;
+  flex: 1;
+  /*min-height: 550px;
+  max-width: 640px;*/
+
+
+  ion-card {
+    flex: 1 auto;
+    margin: 0 !important;
+    width: 100% !important;
+   
+        .post-category {
+            ion-icon {
+                color: #fff !important;
+                font-size: medium !important;
+            }
+        }
+
+        ion-avatar img {
+            $avatar-size: 40px;
+            height: $avatar-size;
+            min-width: $avatar-size !important;
+            min-height: $avatar-size !important;
+        }
+
+        img-progressive {
+            min-height: 350px;
+        }
+
+        ion-note {
+            font-size: medium !important;
+            /*color: #000 !important;*/
+            span {
+                color: #000 !important;
+            }
+        }
+
+        p {
+            /*color: #000 !important;*/
+        }
+
+        ion-icon {
+            font-size: 1.2em !important;
+        }
+
+        ion-card-content {
+            display: flex;
+            align-content: center;
+            justify-content: flex-start;
+            min-height: 50px;
+
+            div {
+                color: map-get($colors, dark) !important;
+            }
+        }
+
+        .item-buttons {
+            padding-left: 0;
+            height: 50px !important;
+
+            .button-large-ios, .button-large-md {
+                padding: 0 .5em;
+            }
+
+            .label-ios, .label-md {
+                margin: 0;
+            }
+        }
+
+        ion-list {
+            .item-block {
+                min-height: 2.4rem;
+            }
+
+            ion-item {
+                border: none;
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+                padding: 0px !important;
+
+                ion-label {
+                    padding: 0px !important;
+                    font-size: 0.8em;
+                    margin: 7px 0 !important;
+                }
+            }
+        }
+
+    }
+
+
+
+
+    $color1: #f1f1f1;
+    $color2: #e6e5eb;
+
+    img {
+        background-color: #fdfdfd;
+        position: relative;
+
+        &.profile-pic {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+
+            &.left {
+                left: 10px;
+            }
+
+            &.right {
+                right: 10px;
+            }
+        }
+    }
+
+    .ion-email {
+        float: right;
+        font-size: 32px;
+        vertical-align: middle;
+    }
+
+    .message {
+        font-size: 14px;
+        color: #000;
+    }
+
+    .message-detail {
+        white-space: nowrap;
+        font-size: 14px;
+        color: #000;
+    }
+
+    .bar.item-input-inset .item-input-wrapper input {
+        width: 100% !important;
+    }
+
+    .message-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        &:last-child {
+            margin-bottom: 10px;
+        }
+    }
+
+    .chat-bubble {
+        border-radius: 5px;
+        display: inline-block;
+        padding: 10px 18px;
+        position: relative;
+        margin: 10px;
+        max-width: 80%;
+
+        &:before {
+            content: "\00a0";
+            display: block;
+            height: 16px;
+            width: 9px;
+            position: absolute;
+            bottom: 7px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 300px;
+            min-height: 264px;
+        }
+
+        &.left {
+            background-color: $color2;
+            float: left;
+            margin-left: 55px;
+
+            &:before {
+                background-color: $color2;
+                left: 1px;
+                -webkit-transform: rotate(70deg) skew(5deg);
+                transform: rotate(70deg) skew(5deg);
+            }
+        }
+
+        &.right {
+            background-color: $color1;
+            float: right;
+            margin-right: 55px;
+
+            a.autolinker {
+                font-weight: bold;
+            }
+
+            &:before {
+                background-color: $color1;
+                right: 1px;
+                -webkit-transform: rotate(118deg) skew(-5deg);
+                transform: rotate(118deg) skew(-5deg);
+            }
+        }
+    }
+}
