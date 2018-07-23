@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { Myproject } from './myproject';
+import {SharedLazyModule} from "../../../app/shared.module";
 
 @NgModule({
   declarations: [
@@ -9,7 +10,7 @@ import { Myproject } from './myproject';
   ],
   imports: [
     IonicPageModule.forChild(Myproject),
-	//ComponentsModule
+      SharedLazyModule
   ],
   exports: [
     Myproject

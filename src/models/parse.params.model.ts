@@ -11,3 +11,27 @@ export interface IParams {
     country_city?: string,
     type?: number,
 }
+
+export interface IHandyParams {
+    limit: number,
+    page: number,
+    id?: string,
+    search?: string,
+    username?: string,
+    filter?: string,
+    hashtags?: string,
+    handyservice?: string,
+    handyproduct?: string,
+    words?: string,
+    cache?: boolean,
+    location?: any,
+    country?: string,
+    privacity?: string,
+}
+
+export interface IHandyGetParams {
+    limit: number,
+    page: number,
+    mybooking?: boolean,
+    user?: String,
+}

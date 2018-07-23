@@ -1,0 +1,24 @@
+
+<ion-header class="hm_bg_color hm_header" (click)="scrollTop()">
+  <ion-navbar color="none"  class="hm_bg_color hm_header" >
+    <ion-buttons>
+      <button ion-button icon-only tappable (click)="onPagecamera($event)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+      <ion-title>
+          Project
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content no-bounce  fullscreen>
+    <super-tabs scrollTabs (tabSelect)="onTabSelect($event)" selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="primary">
+        <super-tab [root]="handypage1" title="MyHandy" id="project"></super-tab>
+        <super-tab [root]="handypage2" title="Bookings" id="ongoing"></super-tab>
+        <super-tab [root]="handypage3" title="Messages" id="message"></super-tab>
+    </super-tabs>
+
+</ion-content>

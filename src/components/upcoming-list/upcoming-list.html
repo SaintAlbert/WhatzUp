@@ -23,8 +23,8 @@
     <ion-list>
         <ion-grid fixed>
             <ion-row align-items-stretch lazy-load-images>
-                <ion-item-group *ngFor="let group of data | groupByPipe: 'startDate'">
-                    <ion-item-divider  detail-push color="transparent" sticky tappable (click)="onSelectDateCategory(group.key)">
+                <ion-item-group *ngFor="let group of data | groupByPipe: 'dateKey'">
+                    <ion-item-divider  detail-push sticky tappable (click)="onSelectDateCategory(group.key)">
                         <ion-icon  name="calendar-outline" color="light"></ion-icon>
                             {{ group.key | date:'dd MMMM yyyy'}}
                         

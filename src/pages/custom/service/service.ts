@@ -22,7 +22,6 @@ export class Service {
 
         let id = this.navParams.get("id");
         this.slidertab = id;
-        //console.log("id", id);
         setTimeout(() => {
             this.goToSlide(id);
         }, 500)
@@ -44,11 +43,10 @@ export class Service {
     }
 
     openService(id, index) {
-        //var service = handy[id];
-        //var item = this.handycatdata[id].item[index];
-        //console.log(service)
-        //console.log(item)
-        this.app.getRootNav().push('ServiceDetail', { id: id, index: index});
+        this.app.getRootNav().push('ServiceDetail', { id: id, index: index, all: false});
+    }
+    openAllService(id) {
+        this.app.getRootNav().push('ServiceDetail', { id: id, all: true });
     }
 
     goBack() {

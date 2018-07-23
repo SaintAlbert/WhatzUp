@@ -54,12 +54,10 @@ export class TabUpcomingPage {
 
         // Google Analytics
         this.analytics.view('TabUpcomingHomePage');
-        // this.eventName = 'home';
-        //this.eventName2 = 'upcominglist';
+      
         this.cordova = this.util.cordova;
         this.isIOS = this.util.isIOS;
-        this.cordova = this.util.cordova;
-        this.isIOS = this.util.isIOS;
+        
         this.events.unsubscribe('photoshareupcoming', null);
         this.events.subscribe('photoshareupcoming', _imageCroped => {
             this.util.onLoading();

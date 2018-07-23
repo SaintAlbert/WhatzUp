@@ -2,6 +2,7 @@ import {Component, ViewChild, ElementRef, Renderer} from "@angular/core";
 import {Tabs,ModalController,Events, IonicPage} from 'ionic-angular';
 import {IonicUtilProvider} from '../../providers/ionic-util/ionic-util';
 import {IonPhotoService} from "../../modules/ion-photo/ion-photo-service";
+import { handy } from "../../handyman-config";
 
 import Parse from "parse";
 
@@ -18,10 +19,12 @@ export class TabsPage {
     // should be each tab's root Page
     tabHome: any = 'TabHomePage';
     tabSearch: any = 'TabSearchPage';
-    tabCapture: any = 'TabCapturePage';
-    tabChat: any = 'TabChatPage';
+    //tabCapture: any = 'TabCapturePage';
+    //tabChat: any = 'TabChatPage';
     tabActivity: any = 'TabActivityPage';
     tabProfile: any = 'TabAccountPage';
+    tabHandy: any ='TabHandyPage';
+    //tabMessage: any ='Message';
     drawerOptions: any;
     query: any;
     queryNotify: any;
@@ -30,7 +33,11 @@ export class TabsPage {
 
     tabActivityBadge: number = 0;
     tabChatActivityBadge: number = 0;
+    tabMessageBadge: number = 0;
+    tabHandyBadge: number = 0;
     chatNotify: any;
+
+    handydata: any = handy;
 
     @ViewChild('myTabs') tabRef: Tabs;
     @ViewChild('inputFile') input: ElementRef;
@@ -113,23 +120,12 @@ export class TabsPage {
             .equalTo('toUser', Parse.User.current())
             .equalTo('isRead', false)
         this.queryNotify.count().then((tabCount) => {
-            //if (tabCount > 0) {
-            //    this.events.publish('chatbadgeIncrease', tabCount)
-            //} else {
-            //    this.events.publish('chatbadgeIncrease', '')
-            //}
+           
         });
     }
 
     OpenCameraShare(sharetype) {
         this.setEventName = sharetype;
-        //if (sharetype == 'photoshareupcoming') {
-        //    this.events.publish('tabHome', 1)
-        //}
-        //if (sharetype == 'photoshare') {
-        //    this.events.publish('tabHome', 2)
-        //}
-        
         if (this.cordova) {
             this.photoService.openCameraOnly().then((image) => {
                 this.modalCtrl.create('NativeCameraModalPage', { eventName: this.setEventName, image: image }).present();
@@ -141,12 +137,6 @@ export class TabsPage {
     }
     OpenGalaryShare(sharetype) {
         this.setEventName = sharetype;
-        //if (sharetype == 'photoshareupcoming') {
-        //    this.events.publish('tabHome', 1)
-        //}
-        //if (sharetype == 'photoshare') {
-        //    this.events.publish('tabHome', 2)
-        //}
         if (this.cordova) {
             this.photoService.openGalaryOnly().then((image) => {
                 this.modalCtrl.create('NativeCameraModalPage', { eventName: this.setEventName, image: image }).present();
@@ -178,7 +168,12 @@ export class TabsPage {
         //this.events.publish('tabHome', 2)
         this.events.publish(this.setEventName, null);
         this.closeDrawer();
-     }
+    }
+
+    openHandyManCreateModal(id) {
+        this.modalCtrl.create('HandyManShareModalPage', { eventNumber: id }).present();
+        this.closeDrawer();
+    }
 
     closeDrawer() {
         this.events.publish(this._eventName + ':close');

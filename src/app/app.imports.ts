@@ -1,4 +1,5 @@
 
+
 //  Modules
 import {HttpModule} from "@angular/http";
 import {MomentModule} from "angular2-moment";
@@ -18,6 +19,7 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { ObjectFitImagesModule } from 'heilbaum-ionic-object-fit-images';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { NguiReactModule } from '@ngui/react';
 
 // Providers
 import {LocalStorageProvider} from "../providers/local-storage/local-storage";
@@ -36,6 +38,11 @@ import {GallerFeedbackProvider} from "../providers/gallery-feedback/gallery-feed
 import {UpcomingFeedbackProvider} from "../providers/upcoming-feedback/upcoming-feedback";
 import {ParseFileProvider} from "../providers/parse-file/parse-file";
 import {ParsePushProvider} from "../providers/parse-push/parse-push";
+import {HandyManProvider} from "../providers/handyman/handyman-service";
+import {HandyCommentProvider} from "../providers/handyman/handy-comment";
+import {HandyManBookingProvider} from "../providers/handyman/handyman-booking";
+//
+
 
 import {ChatChannelProvider} from "../providers/chat-channel/chat-channel";
 import {ChatMessageProvider} from "../providers/chat-message/chat-message";
@@ -68,6 +75,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { ImageCompressService, ResizeOptions, ImageUtilityService } from 'ng2-image-compress';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { SMS } from '@ionic-native/sms';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 // Pipes
@@ -115,7 +123,7 @@ import {FocusDirective} from "../directives/focus/focus";
 import {MyCurrencyFormatterDirective} from "../directives/currency/currency";
 import {AutosizeDirective} from "../directives/autosize/autosize";
 import {ContenteditableModel} from "../directives/contenteditablemodel/contenteditablemodel";
-import {ScrollHideDirective} from "../directives/scrollhideheader/scrollhideheader";
+//import {ScrollHideDirective} from "../directives/scrollhideheader/scrollhideheader";
 //import { CreditCardDirectivesModule } from 'ng2-cc-library'
 // Import your library
 
@@ -139,6 +147,7 @@ export const Modules = [
     Ng2ImgMaxModule,
     ObjectFitImagesModule,
     IonicImageViewerModule,
+    NguiReactModule,
 
 ]
 // Directives
@@ -147,7 +156,7 @@ export const Directives = [
     FocusDirective,
     MyCurrencyFormatterDirective,
     ContenteditableModel,
-    ScrollHideDirective,
+    //ScrollHideDirective,
     //ImageViewer,
     
 ]
@@ -212,6 +221,9 @@ export const Providers = [
     UpcomingFeedbackProvider,
     ParseFileProvider,
     ParsePushProvider,
+    HandyManProvider,
+    HandyCommentProvider,
+    HandyManBookingProvider,
     LocalStorageProvider,
     LoggingProvider,
     IonicUtilProvider,
@@ -241,5 +253,6 @@ export const Providers = [
     NativeAudio,
     LaunchNavigator,
     SMS,
+    InAppBrowser,
 ]
 

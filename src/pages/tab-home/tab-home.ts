@@ -105,9 +105,13 @@ export class TabHomePage {
       this.events.publish('tabUpcomingHome')
       this.slideToIndex(0);
     })
+    this.events.subscribe('myhandyman', () => {
+        this.events.publish('tabTimelineHome')
+        this.slideToIndex(1);
+    })
     this.events.subscribe('mytimeline', () => {
       this.events.publish('tabTimelineHome')
-      this.slideToIndex(1);
+      this.slideToIndex(2);
     })
     this.events.subscribe('chatbadgeIncrease', (num) => { this.chatbadgeIncrease = num; })
 
@@ -119,10 +123,6 @@ export class TabHomePage {
       }
 
     });
-
-    
-    //console.log(this.storage.get('locale'))
-
   }
 
   location() {
@@ -135,42 +135,15 @@ export class TabHomePage {
       this.storage.get('locale').then((d) => {
           this.mylocation = d;
       });
-  //    //// Load Cache
-  //    //this.params.page = 1;
-  //    //this.events.publish(this.eventName + ':reload', this.params);
   }
 
-
-  //ionViewWillEnter() {
-  //    //console.info(this.eventName);
-  //    //// More Item
-  //    //this.events.subscribe(this.eventName + ':moreItem', moreItem => this.moreItem = moreItem);
-
-  //    //this.events.subscribe('scroll:up', () => {
-  //    //    this.scrollTop()
-  //    //});
-
-  //}
-
-  //ionViewDidLeave() {
-  //    //console.warn('ionViewDidLeave home');
-  //    //this.events.unsubscribe(this.eventName + ':moreItem');
-
-  //    //this.events.unsubscribe('scroll:up');
-  //}
-
   ngAfterViewInit() {
-    //this.slideToIndex(0);
-    //this.superTabsCtrl.slideTo(1)
     this.superTabsCtrl.enableTabsSwipe(true);
 
   }
 
   slideToIndex(index: number) {
-    //console.log(this.superTabs)
-    //this.superTabs.selectedTabIndex = index;
     this.superTabsCtrl.slideTo(index)
-    //this.superTabs.paneChanged()//(this.superTabs.selectedTabIndex);
   }
   hideToolbar() {
     this.superTabs.showToolbar(false);
@@ -179,13 +152,12 @@ export class TabHomePage {
   public onPageChat() {
     this.app.getRootNav().push('ChatChannelPage');
   }
+  public onPageCategory() {
+      this.app.getRootNav().push('TabCategoryPage');
+  }
   public onPagecamera(ev) {
     this.events.publish('sharedNewPost:openCrop');
-    //this.app.getRootNav().push('CameraPopoverPage');
-    //let popover = this.popoverCtrl.create('CameraPopoverPage');
-    //popover.present({ ev: ev });
   }
-  //
 
   scrollTop() {
     if (this.content._scroll) {

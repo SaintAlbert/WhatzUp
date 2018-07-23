@@ -43,6 +43,7 @@ $app-direction: ltr;
 $text-color: #000;
 $background-color: #fff;
 $background-color2: #162d38; //#333; //#3c353c;
+$none: #162d38;
 /*$background-color: #3c353c;*/
 // Material Color Pallet https://material.google.com/style/color.html#color-color-palette
 // Theme App Color
@@ -81,7 +82,7 @@ $Technology: #F0E0B0;
 $Theatre: #FF6040;
 $Travel: #E0A0E0;
 
-$colors: ( primary: #EE7600, secondary: #7f8c8d, danger: #f53d3d, light: #fff, dark: #162d38, favorite: #69BB7B, facebook: #3B5998, none:$background-color2, transparent:$transparent,Baby: #D0A020, Birthday: #808080, Pub: #008000, Entertainment: #D05860, Sports: #20B0A0, Business: #0000E0, Fashion: #800000, Art: #60C8A0, World: #0000D0, Campus: #30C830, Charity: #101870, Comedy: #403880, Community: #305050, Culture: #90B890, Education: #506830, Festival: #008080, Food: #804010, Government: #C09090, Highlights: #000000, Holiday: #E0B880, Lifestyle: #A0B0E0, Film: #FF4000, Music: #D070D0, Wedding:#800080, Night: #F0A060, Politics: #708090, Spirituality: #FF00FF, Technology: #F0E0B0, Theatre: #FF6040, Travel:#E0A0E0 );
+$colors: ( primary: #EE7600, secondary: #7f8c8d, danger: #f53d3d, light: #fff, dark: #162d38, favorite: #69BB7B, facebook: #3B5998, none:$none, transparent:$transparent,Baby: #D0A020, Birthday: #808080, Pub: #008000, Entertainment: #D05860, Sports: #20B0A0, Business: #0000E0, Fashion: #800000, Art: #60C8A0, World: #0000D0, Campus: #30C830, Charity: #101870, Comedy: #403880, Community: #305050, Culture: #90B890, Education: #506830, Festival: #008080, Food: #804010, Government: #C09090, Highlights: #000000, Holiday: #E0B880, Lifestyle: #A0B0E0, Film: #FF4000, Music: #D070D0, Wedding:#800080, Night: #F0A060, Politics: #708090, Spirituality: #FF00FF, Technology: #F0E0B0, Theatre: #FF6040, Travel:#E0A0E0 );
 
 $categories: (Baby: #D0A020, Birthday: #162d38, Pub: #008000, Entertainment: #D05860, Sports: #20B0A0, Business: #0000E0, Fashion: #800000, Art: #60C8A0, World: #0000D0, Campus: #30C830, Charity: #101870, Comedy: #403880, Community: #305050, Culture: #90B890, Education: #506830, Festival: #008080, Food: #804010, Government: #C09090, Highlights: #000000, Holiday: #E0B880, Lifestyle: #A0B0E0, Film: #FF4000, Music: #D070D0, Wedding:#800080, Night: #F0A060, Politics: #708090, Spirituality: #FF00FF, Technology: #F0E0B0, Theatre: #FF6040, Travel:#E0A0E0, );
 

@@ -16,6 +16,7 @@ export class UserDataProvider {
         'name',
         'username',
         'user',
+        'stripeId',
     ];
 
     private _ParseObject: any = Parse.Object.extend('UserData', {});

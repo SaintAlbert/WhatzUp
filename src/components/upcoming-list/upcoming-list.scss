@@ -16,10 +16,12 @@ upcoming-list {
       ion-item-divider{
             ion-icon{
                 font-size: large!important;
+                color: map-get($colors, dark) !important; 
             }
             ion-label{
             margin:0px!important;
             }
+              color: map-get($colors, dark) !important; 
         }
     virtual-scroll {
         display:  flex!important;

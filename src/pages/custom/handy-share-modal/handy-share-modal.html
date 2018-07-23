@@ -1,0 +1,117 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons start>
+            <button ion-button clear tappable (click)="dismiss(true)">
+                {{'Cancel' | translate}}
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            <div> <img [src]="form.iconHeader" style="height:20px;width:20px;"> <span>{{form.handyHeader | translate}} Product</span></div>
+
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button clear tappable (click)="submit()">
+                {{'Post' | translate}}
+                <ion-icon name="send"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content >
+    <!--(ngSubmit)="submit(shareImageForm)"-->
+    <div>
+        <ion-list >
+            <ion-item tappable (click)="addPicture()">
+                <ion-label>{{'Product Photo' | translate}}</ion-label>
+
+                <ion-thumbnail item-left *ngIf="form.image">
+                    <img  [src]="form.image">
+                </ion-thumbnail>
+                <ion-thumbnail item-left *ngIf="!form.image">
+                    <img src="assets/img/camera.png" />
+                </ion-thumbnail>
+
+            </ion-item>
+            <ion-item color="dark">
+                <ion-label><img [src]="form.iconKey" style="height:22px;width:22px;"> {{'Product Type?' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.handyKey" name="handyKey" #prod (ngModelChange)="onProductChange($event,prod.id)">
+                    <ion-option *ngFor="let s of itemCategory.item; let idx = index"  [value]="s.name"> {{s.name | translate}}</ion-option>
+                </ion-select>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-input [(ngModel)]="form.title"
+                           name="title"
+                           placeholder="{{'Product title e.g (Wax and Groom)' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item *ngFor="let att of descArray; let idx = index">
+                <button ion-button item-right clear (click)="Remove(idx)"><ion-icon color="danger" name="trash" tappable></ion-icon></button>
+                <ion-textarea [(ngModel)]="descArray[idx].label" style="padding-left:0px;"
+                              [required]="true"
+                              placeholder="{{'Description e.g ( Legs, Arms, Under Arms )' | translate}}"></ion-textarea>
+
+            </ion-item>
+            <ion-item-divider> Add more product description   <button ion-button item-right tappable (click)="Add()"><ion-icon name="add"></ion-icon></button></ion-item-divider>
+            <ion-item>
+                <ion-label> Venue </ion-label>
+                <ion-input type="text" [(ngModel)]="form.venue" placeholder="{{' Business or Shop name' | translate}}"></ion-input>
+            </ion-item>
+            <address-input [address]="form.address"></address-input>
+            <ion-item>
+                <ion-label>{{'Currency' | translate}}</ion-label>
+                <ion-select [(ngModel)]="currencyId" name="currencyId" (ngModelChange)="onCurrencyChange()" [required]="true">
+                    <ion-option *ngFor="let currency of handyCurrency" [value]="currency.id">{{currency.currency | translate}} ({{ currency.symbol }})</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label> Price {{form.symbol}}</ion-label>
+                <ion-input type="number" name="Price" [(ngModel)]="form.price" step="1" placeholder="{{'0' | translate}}"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                    {{'Do you offer home services?' | translate}}
+
+                </ion-label>
+                <ion-checkbox item-right [(ngModel)]="form.offerHomeService"></ion-checkbox>
+
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Privacy' | translate}}</ion-label>
+                <ion-select [(ngModel)]="form.privacity" name="privacity">
+                    <ion-option value="public">{{'Public' | translate}}</ion-option>
+                    <ion-option value="followers">{{'Followers' | translate}}</ion-option>
+                    <ion-option value="me">{{'Me' | translate }}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item-divider color="dark">Pick Opening Days and Time</ion-item-divider>
+            <ion-item>
+                <ion-label>{{'Opening Days' | translate}}</ion-label>
+             <ion-select multiple="true" [(ngModel)]="openingDay" name="openingDay">
+            <ion-option *ngFor="let att of openingDayArray; let idx = index" value="{{att}}">
+                        {{att | translate}}
+                    </ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Opening time' | translate}}</ion-label>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="openingTime.open"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'Closing time' | translate}}</ion-label>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="openingTime.close"></ion-datetime>
+            </ion-item>
+            <ion-item text-wrap>
+                <ion-note>*Note: By using this service you agreed to our term &amp; service. </ion-note>
+            </ion-item>
+</ion-list>
+    </div>
+</ion-content>
+<input *ngIf="!_cordova"
+       #inputFile
+       type="file"
+       (change)="onChange($event)"
+       accept="image/x-png, image/gif, image/jpeg"
+       max-size="2048"
+       style="display: none;">

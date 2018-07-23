@@ -1,0 +1,237 @@
+<ion-header class="hm_bg_color hm_header">
+    <ion-navbar color="none" >
+        <ion-buttons>
+            <button tappable (click)="dismiss()" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+        </ion-buttons>
+            <ion-title class="hm_service_div">
+                <div> <img [src]="item.iconKey" style="height:20px;width:20px;"> <span>{{item.handyKey}}</span></div>
+            </ion-title>
+
+            <ion-buttons end>
+
+                <button ion-button icon-only tappable (click)="openComments()">
+                    <ion-icon name="chatbubbles">
+                    </ion-icon>
+
+                </button>
+            </ion-buttons>
+</ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item *ngIf="item" tappable (click)="openProfile(item.user.username)">
+        <ion-avatar item-left class="no-padding">
+            <img *ngIf="item.user.photo" [src]="item.user.photo" width="40px" height="40px">
+            <img *ngIf="!item.user.photo" src="assets/img/user.png">
+        </ion-avatar>
+        <h2>{{item.user.name || item.user.username }}</h2>
+        <p>{{item.address.country}}</p>
+    
+    </ion-item>
+    <div class="hm_recommended_wrapper" *ngIf="item">
+        <div class="hm_recommended_banner">
+            <div class="hm_recommended_banner_overlay">
+                <div class="hm_recommended_banner_text">
+                    <h4>{{item.title}}</h4>
+                    <p tappable (click)="openComments()">
+                        <ion-icon name="chatbubbles"></ion-icon> {{item.comments.length}} comments
+                    </p>
+                </div>
+            </div>
+            <img [src]="item.image" imageViewer>
+        </div>
+        <div class="hm_service_details">
+            <h4 style="padding-left:10px;"> <ion-label><ion-icon name="cube"></ion-icon> {{item.handyKey}} Package</ion-label> </h4>
+            <ul *ngFor="let g of item.handyPackage">
+                <li class="hm_border_top_none hm_border_left_none">
+                    <h6> {{g.label}}</h6>
+                </li>
+            </ul>
+
+            <div style="padding-left:10px;"><h6><ion-icon name="home"></ion-icon> Offer home services? <ion-icon color="dark" *ngIf="item.offerHomeService" name="thumbs-up"></ion-icon> <ion-icon color="dark" *ngIf="!item.offerHomeService" name="thumbs-down"></ion-icon></h6><br></div>
+
+
+        </div>
+
+        <div class="hm_recommended_detail">
+            <button class="hm_howitwork"><span><img src="assets/img/cat/hm_ques1.png"></span><span>How it works</span></button>
+
+            <div class="hm_recommended_list">
+                <ul [hidden]="true">
+                    <li class="hm_border_top_none hm_border_left_none">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_branded.png">
+                        </div>
+                        <div text-wrap class="hm_rec_list_right">
+                            <h5>Branded Cosmetics</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <li class="hm_border_top_none hm_border_right_none hm_border_left_none">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_expert.png">
+                        </div>
+                        <div class="hm_rec_list_right">
+                            <h5>Expert Beautition</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <li class="hm_border_top_none hm_border_bottom_none hm_border_left_none ">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_clean_service.png">
+                        </div>
+                        <div class="hm_rec_list_right">
+                            <h5>Clean Service</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <li class="hm_border_top_none hm_border_bottom_none hm_border_left_none hm_border_right_none">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_cashless.png">
+                        </div>
+                        <div class="hm_rec_list_right">
+                            <h5>Cashless Payment</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <li class="hm_border_bottom_none hm_border_left_none">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_ontime.png">
+                        </div>
+                        <div class="hm_rec_list_right">
+                            <h5>On time</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <li class="hm_border_bottom_none hm_border_left_none hm_border_right_none">
+                        <div class="hm_rec_list_left">
+                            <img src="assets/img/cat/hm_acces.png">
+                        </div>
+                        <div class="hm_rec_list_right">
+                            <h5>Accessories</h5>
+                            <h6>Lakme, La 0' Real</h6>
+                        </div>
+                        <div class="hm_clear"></div>
+                    </li>
+                    <div class="hm_clear"></div>
+                </ul>
+                <h4><span><img src="assets/img/cat/hm_smiley.png"></span><span>Customer Experiences</span></h4>
+                <div class="hm_experience">
+                    <ion-item text-wrap>No customer experiences</ion-item>
+                </div>
+                <!--<div class="hm_experience">
+                     <ion-slides pager="false" #mySlider class="hm_test_video_slider">
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video1.png">
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video2.png">
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video3.png">
+                        </ion-slide>
+                     </ion-slides>
+                </div>
+                <div class="hm_experience_thumbnail">
+                     <ion-slides pager="false" #mySlider class="hm_thumb_video_slider">
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video1.png">
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video2.png">
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video3.png">
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_test_video_slider_overlay"></div>
+                            <img src="assets/img/cat/hm_video1.png">
+                        </ion-slide>
+                     </ion-slides>
+                </div>-->
+                <!--<h4><span><img src="assets/img/cat/hm_comments.png"></span><span>Customer Testimonials</span></h4>
+                <br>
+                <div class="hm_testimonial"></div>-->
+                <!--<div class="hm_testimonial">
+                    <ion-slides pager="false" #mySlider class="hm_testimonial_slider">
+                        <ion-slide>
+                            <div class="hm_testimonial_top">
+                                <div class="hm_testimonial_pic">
+                                </div>
+                                <div class="hm_testimonial_detail">
+                                    <h5>Anjali Bhathyar</h5>
+                                    <p>23-04-2017</p>
+                                </div>
+                                <div class="hm_clear"></div>
+                                <div class="hm_testimoanil_p">
+                                    “ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+                                </div>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_testimonial_top">
+                                <div class="hm_testimonial_pic">
+                                </div>
+                                <div class="hm_testimonial_detail">
+                                    <h5>Roshna Elsa John</h5>
+                                    <p>06-07-2017</p>
+                                </div>
+                                <div class="hm_clear"></div>
+                                <div class="hm_testimoanil_p">
+                                    “ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+                                </div>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="hm_testimonial_top">
+                                <div class="hm_testimonial_pic">
+                                </div>
+                                <div class="hm_testimonial_detail">
+                                    <h5>Preethi Bhatt</h5>
+                                    <p>11-11-2017</p>
+                                </div>
+                                <div class="hm_clear"></div>
+                                <div class="hm_testimoanil_p">
+                                    “ It is a long established fact that a reader will  be distracted by the readable content of a page when looking at its layout. The point of using Lorem ”
+                                </div>
+                            </div>
+                        </ion-slide>
+                    </ion-slides>
+                </div>-->
+            </div>
+            <br>
+
+        </div>
+
+    </div>
+</ion-content>
+<ion-footer>
+    <div class="hm_btn_bottom">
+        <div class="hm_allservice_footer" *ngIf="item">
+            <div class="hm_items">
+                1
+            </div>
+            <span> <img src="assets/img/cat/hm_cart.png"></span>
+            <div class="hm_amount">
+                {{item.price | currency:item.code:true:'1.2-2'}}
+            </div>
+            <div class="hm_service_continue" (click)="bookAppointment(item)">
+                Book
+            </div>
+            <div class="hm_clear"></div>
+        </div>
+    </div>
+
+</ion-footer>

@@ -1,99 +1,84 @@
 <ion-header>
-
     <ion-navbar color="none">
         <ion-title class="hm_service_div">
             <!--<p> {{service.name}}</p>-->
             <div> <img [src]="service.src" style="height:20px;width:20px;"> <span>{{service.name}}</span></div>
         </ion-title>
     </ion-navbar>
-    <ion-toolbar color="none">
-                <div style="float:left!important; display:block; color:#fff;font-size: 1.1em ;">
-        <img [src]="serviceItem.src" style="height:20px;width:20px;">
-         <span>{{serviceItem.name}}</span></div>
+    <ion-toolbar color="none" *ngIf="serviceItem">
+        <div style="float:left!important; display:block; color:#fff;font-size: 1.1em ;">
+            <img [src]="serviceItem.src" style="height:20px;width:20px;">
+            <span>{{serviceItem.name}}</span>
+        </div>
+    </ion-toolbar>
+    <ion-toolbar color="none" *ngIf="!serviceItem">
+        <div style="float:left!important; display:block; color:#fff;font-size: 1.1em ;">
+            <img [src]="service.src" style="height:20px;width:20px;">
+            <span>All {{service.name}} </span>
+        </div>
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-list style="margin-top:0!important;">
-        <div *ngFor="let s of serviceItems">
-            <ion-item *ngFor="let g of s.packageList">
-                <div class="hm_service_details">
-                    <h5>{{g.label}}</h5>
-                    <p>
-                        <span>{{g.desc[0]}}</span>
-                        <br>
-                        <i>More info..</i>
-                        <!--<span *ngFor="let s of g.desc">
-                            {{s}}
-                            <br>
-                        </span>-->
-                    </p>
-                    <h6>{{g.price | currency:getCode(g.code):true:'1.2-2'}}</h6>
-                </div>
-                <div class="hm_service_add">
-                    <button class="hm_service_btn" (click)="add(s)">ADD +</button>
-                </div>
-                <div class="hm_clear"></div>
-            </ion-item>
+    <ion-refresher (ionRefresh)="doRefresh($event)" [enabled]="!isIOS">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <loader *ngIf="loading && !serviceItems.length"></loader>
+    <!-- error -->
+    <div class="center" *ngIf="showErrorView" padding>
+        <div class="error ">
+            <ion-icon [name]="errorIcon"></ion-icon>
+            <p>{{ 'Connection unavailable' | translate }}</p>
+            <button ion-button color="primary" tappable (click)="doTry()">
+                {{ 'Try again' | translate }}
+            </button>
         </div>
-        <!--<ion-item>
-            <div class="hm_service_details">
-                <h5>Monthly Wax and Groom</h5>
-                <p>
-                    Waxing ( Full Legs, Arms, Under Arms )<br>
-                    + Threading ( Full Face )
-                </p>
-                <h6>$ 59</h6>
+    </div>
+    <!-- empty-->
+    <div class="center " *ngIf="showEmptyView" padding>
+        <div class="error" *ngIf="serviceItem">
+            <!--<ion-icon [name]="errorIcon"></ion-icon>-->
+            <div class="{{service.class}}">
+                <div>
+                    <img [src]="serviceItem.src" class="hm_service_div" />
+
+                </div>
+                <p>{{ serviceItem.name | translate }} not found  </p>
             </div>
-            <div class="hm_service_add">
-                <button class="hm_service_btn" (click)="add()">ADD +</button>
+
+        </div>
+        <div class="error" *ngIf="!serviceItem">
+            <!--<ion-icon [name]="errorIcon"></ion-icon>-->
+            <img [src]="service.src" />
+            <p>{{service.name | translate }} not found  </p>
+        </div>
+    </div>
+
+    <div style="padding-bottom:10px;" align-items-stretch lazy-load-images *ngFor="let item of serviceItems" tappable (click)="onSelectHandyDetail(item)">
+        <div class="hm_recommended_banner" >
+            <div class="hm_recommended_banner_overlay">
+                <div class="hm_recommended_banner_text ">
+                    <h4>{{item.title}}</h4>
+                    <p style="font-weight:bold; width:100%!important">
+                        <img [src]="item.iconKey" style="height:20px;width:20px;" /> {{item.handyKey}}
+                        <span style="float:right!important;">{{item.price | currency:getCode(item.code):true:'1.2-2'}}</span>
+                    </p>
+                    <p><ion-icon name="chatbubbles"></ion-icon> {{item.comments.length}} comments</p>
+                </div>
             </div>
-            <div class="hm_clear"></div>
-        </ion-item>
-        <ion-item>
-            <div class="hm_service_details">
-                <h5>Monthly Wax and Groom</h5>
-                <p>
-                    Waxing ( Full Legs, Arms, Under Arms )<br>
-                    + Threading ( Full Face )
-                </p>
-                <h6>$ 59</h6>
-            </div>
-            <div class="hm_service_add">
-                <button class="hm_service_btn" (click)="add()">ADD +</button>
-            </div>
-            <div class="hm_clear"></div>
-        </ion-item>
-        <ion-item>
-            <div class="hm_service_details">
-                <h5>Monthly Wax and Groom</h5>
-                <p>
-                    Waxing ( Full Legs, Arms, Under Arms )<br>
-                    + Threading ( Full Face )
-                </p>
-                <h6>$ 59</h6>
-            </div>
-            <div class="hm_service_add">
-                <button class="hm_service_btn" (click)="add()">ADD +</button>
-            </div>
-            <div class="hm_clear"></div>
-        </ion-item>
-        <ion-item>
-            <div class="hm_service_details">
-                <h5>Monthly Wax and Groom</h5>
-                <p>
-                    Waxing ( Full Legs, Arms, Under Arms )<br>
-                    + Threading ( Full Face )
-                </p>
-                <h6>$ 59</h6>
-            </div>
-            <div class="hm_service_add">
-                <button class="hm_service_btn" (click)="add()">ADD +</button>
-            </div>
-            <div class="hm_clear"></div>
-        </ion-item>-->
-    </ion-list>
+            <img [attr.data-src]="item.image" object-fit="cover" object-fit-watch-mq="true">
+
+        </div>
+       
+    </div>
+
+   
+
+    <ion-infinite-scroll *ngIf="moreItem" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
 </ion-content>
-<ion-footer>
+<ion-footer [hidden]="cartItems.length==0">
     <div class="hm_btn_bottom">
         <div class="hm_allservice_footer">
             <div class="hm_items">

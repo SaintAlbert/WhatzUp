@@ -1,3 +1,4 @@
+
 import {Component, ViewChild, ElementRef, Renderer} from "@angular/core";
 import {Events, Content, App, NavController, NavParams, IonicPage, PopoverController, ModalController} from "ionic-angular";
 import {IParams} from "../../models/parse.params.model";

@@ -6,15 +6,31 @@
     <!--<ion-tab [root]="tabCapture" tabIcon="camera"></ion-tab>-->
     <!--<ion-tab [root]="tabChat" tabIcon="ios-chatbubbles" [tabBadge]="tabChatActivityBadge" tabBadgeStyle="danger"></ion-tab>-->
     <ion-tab tappable [root]="tabActivity" tabIcon="notifications" [tabBadge]="tabActivityBadge" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tappable [root]="tabHandy" tabIcon="construct" [tabBadge]="tabHandyBadge" tabBadgeStyle="danger"></ion-tab>
+    <!--<ion-tab [root]="tabMessage" tabIcon="filing" [tabBadge]="tabMessageBadge" tabBadgeStyle="danger"></ion-tab>-->
     <ion-tab tappable [root]="tabProfile" tabIcon="person"></ion-tab>
 </ion-tabs>
 <content-drawer [options]="drawerOptions" [event]="_eventName">
 
-    <ion-list>
+    <ion-list >
         <ion-list-header>
-            <ion-icon color="primary" name="calendar-outline"></ion-icon> {{'Share new Upcoming Event' | translate}}
+            <ion-icon color="primary" name="construct-outline"></ion-icon> {{ 'Create HandyMan Task' | translate}}
         </ion-list-header>
-        <ion-item>
+
+        <div class="hm_menu_bay">
+            <ion-grid style="color:#fff;">
+                <ion-row>
+                    <ion-col width-25 *ngFor="let g of handydata; let last = last; let idx = index;" [ngClass]="g.style" tappable (click)="openHandyManCreateModal(idx)">
+                        <img [src]="g.src"><p>{{g.name}}</p>
+                        <div *ngIf="last" class="hm_clear"></div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <ion-list-header>
+            <ion-icon color="primary" name="calendar-outline"></ion-icon> {{'Create Upcoming Event' | translate}}
+        </ion-list-header>
+        <ion-item >
             <ion-grid>
                 <ion-row>
                     <ion-col width-50 tappable (click)="OpenCameraShare('photoshareupcoming')">
@@ -29,7 +45,7 @@
             </ion-grid>
         </ion-item>
         <ion-list-header>
-            <ion-icon color="primary" name="clock-outline"></ion-icon> {{'Share new Photo & Post' | translate}}
+            <ion-icon color="primary" name="clock-outline"></ion-icon> {{'Add Photo or Post' | translate}}
         </ion-list-header>
         <ion-item>
             <ion-grid>
@@ -49,21 +65,14 @@
                 </ion-row>
             </ion-grid>
         </ion-item>
-        <!--<ion-list-header>
-            <ion-icon color="primary" name="create-outline"></ion-icon> {{ 'Share Post message' | translate}}
-        </ion-list-header>
-        <ion-item>
-            <ion-grid>
-                <ion-row >
-                    <ion-col width-50 tappable (click)="sharePostOnly('photoshare')">
-                        <img src="assets/img/post-img.png" />
-                        <h3>Write Post</h3>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-item>-->
-        <!--<button ion-item tappable (click)="closeDrawer()">  <ion-icon color="primary" name="close"></ion-icon> {{ 'Cancel' | translate}}</button>-->
+       
+      
     </ion-list>
+  
+
+
+
+
 
 </content-drawer>
 

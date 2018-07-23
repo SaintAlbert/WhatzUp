@@ -121,9 +121,6 @@ export class TabActivityPage {
     }
 
     public onPagecamera(ev) {
-        //this.app.getRootNav().push('CameraPopoverPage');
-        //let popover = this.popoverCtrl.create('CameraPopoverPage');
-        //popover.present({ ev: ev });
         this.events.publish('sharedNewPost:openCrop');
     }
 

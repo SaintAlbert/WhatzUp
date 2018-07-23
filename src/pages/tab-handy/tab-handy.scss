@@ -1,0 +1,71 @@
+.ios, .md {
+    page-tab-handy {
+
+        /*ion-header {
+            backdrop-filter: blur(8px);
+        }
+
+        ion-navbar {
+            opacity: 0.4;
+            box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+        }*/
+        /*.content {
+        background-color: #f7f7f7;
+    }
+
+    ion-col {
+        padding: 0;
+    }
+
+    ion-fab {
+       
+        button {
+            background-color:rgba(0, 0, 0, 0.2) !important;
+         
+            color: map-get($colors, primary);
+            
+        }
+        
+    }*/
+
+         /*.header-image {
+            background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+            height: 40vh;
+        }
+ 
+        .main-content {
+            background-color: map-get($colors, dark);
+            box-shadow: 0px -1px 13px 1px rgba(0,0,0,0.3);
+        }*/
+ 
+         /*ion-segment {
+            padding: 0px 12px;
+            opacity: 0.7;
+            position: relative;
+          
+        }*/
+         ion-content{
+              /*background-color: #f7f7f9!important;*/
+              /*overflow-x:no-display;
+              overflow-y:no-display;*/
+         }
+
+
+        #notification-button {
+            position: relative;
+            width: 42px;
+            top: 1px;
+            right: 1px;
+            overflow: visible !important;
+        }
+
+
+        #notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+        }
+    }
+}

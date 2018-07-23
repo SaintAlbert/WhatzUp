@@ -1,13 +1,22 @@
 
-<ion-content class="hm_sign_bg">
-  <div class="hm_wrapper">
+<ion-content >
+  <!--<div class="hm_wrapper">-->
   <div class="hm_menu_bay">
     <ul *ngFor="let g of handydata; let last = last;">
-      <li [ngClass]="g.style" (click)="service(g.id)"><img [src]="g.src"><p>{{g.name}}</p></li>
+      <li [ngClass]="g.style" (click)="service(g.id)"><img [src]="g.src"><p text-wrap>{{g.name}}</p></li>
       <div *ngIf="last" class="hm_clear"></div>
     </ul>
-  
   </div>
+    <!--<div class="hm_menu_bay">
+        <ion-grid style="color:#fff;">
+            <ion-row>
+                <ion-col width-25 *ngFor="let g of handydata; let last = last; let idx = index;" [ngClass]="g.style" tappable (click)="openHandyManCreateModal(idx)">
+                    <img [src]="g.src"><p>{{g.name}}</p>
+                    <div *ngIf="last" class="hm_clear"></div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>-->
   <div class="hm_ad_wrap">
   <ion-slides pager="false" #mySlider>
         <ion-slide (click)="recommended()">
@@ -73,7 +82,7 @@
       </ul>
     </ion-scroll>
   </div>
-</div>
+<!--</div>-->
 </ion-content>
 <!--<ion-footer>
 <tabcomponent></tabcomponent>

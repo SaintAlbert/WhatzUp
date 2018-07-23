@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-navbar color="none">
+        <ion-buttons >
+            <button [hidden]="currentIndex != 0" tappable (click)="dismiss()" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            <button [hidden]="currentIndex != 1" tappable (click)="backOne(0)" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            <button [hidden]="currentIndex != 2" tappable (click)="backOne(1)" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            </ion-buttons>
+            <ion-title>
+                Payment Setup
+            </ion-title>
+
+            <!--<ion-buttons end>
+            <button ion-button clear tappable (click)="submit()">
+                {{'Continue' | translate}}
+                <ion-icon name="send"></ion-icon>
+            </button>
+        </ion-buttons>-->
+</ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-list [hidden]="currentIndex != 0">
+        <h5>Merchant Information</h5>
+        <ion-item>
+            <ion-label floating>{{'First Name (required)' | translate}}</ion-label>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-input [(ngModel)]="user.firstName" placeholder="(required)" name="firstName" [required]="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'Last Name (required)' | translate}}</ion-label>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-input [(ngModel)]="user.lastName" name="lastName" [required]="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'DOB (required)' | translate}}</ion-label>
+            <ion-datetime displayFormat="DD MMMM YYYY " [(ngModel)]="user.DOBdate" name="DOBdate" [required]="true"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'Email (required)' | translate}}</ion-label>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-input [(ngModel)]="user.email" name="email" [required]="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'Phone (required)' | translate}}</ion-label>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-input [(ngModel)]="user.phone" name="phone" [required]="true"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'Business Name (optional)' | translate}}</ion-label>
+            <ion-icon name="calendar"></ion-icon>
+            <ion-input [(ngModel)]="user.businessName" name="businessName" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>{{'Currency' | translate}}</ion-label>
+            <ion-select popover [(ngModel)]="currencyId" name="currencyId" text-wrap (ngModelChange)="onCurrencyChange()" [required]="true">
+                <ion-option *ngFor="let currency of countryCurrency; let id=index" [value]="id">{{currency.currency| translate}} ({{ currency.symbol }})</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <address-input [address]="user.address" text-wrap></address-input>
+        <ion-item>
+            <ion-label floating>{{'Country' | translate}}</ion-label>
+            <ion-select popover [(ngModel)]="user.countryISO" name="countryISO" text-wrap [required]="true">
+                <ion-option *ngFor="let c of country" [value]="c">{{c.name| translate}} </ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
+    <ion-list [hidden]="currentIndex != 1">
+        <h5>Enter Bank Information</h5>
+       
+    </ion-list>
+
+    <ion-list [hidden]="currentIndex != 2">
+        <div class="hm_wizard_completion">
+            <div class="hm_wizard_progress_info">
+                <strong>100</strong>% Completion
+            </div>
+            <div class="hm_wizard_content">
+                <h5>Payment Term of Service</h5>
+
+                <p>
+                    Payment processing services for account holder term, e.g. Handyman or sellers on {{appName}} are provided by Stripe and are subject to the Stripe Account Agreement, which includes the <a href="https://stripe.com/gb/connect-account/legal" target="_blank"> Stripe Terms of Service</a> (collectively, the “Stripe Services Agreement”). By agreeing to [this agreement / these terms / etc.] or continuing to operate as a [account holder term] on WhatzUp, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of WhatzUp enabling payment processing services through Stripe, you agree to provide WhatzUp accurate and complete information about you and your business, and you authorize WhatzUp to share it and transaction information related to your use of the payment processing services provided by Stripe.
+                </p>
+            </div>
+        </div>
+    </ion-list>
+
+
+
+</ion-content>
+
+<ion-footer>
+    <div class="hm_wizard_footer">
+        <p>
+            By creating your payment account, you agree to <a href="#" (click)="onTerms()">our Services Agreement</a> and the <a href="https://stripe.com/gb/connect-account/legal" target="_blank"> Stripe Account Agreement</a>.
+        </p>
+        <div class="" [hidden]="currentIndex != 0">
+            <button class="hm_wizard_footer_btn" (click)="submitValidateNext()">
+                Continue
+            </button>
+
+        </div>
+        <div class="" [hidden]="currentIndex != 1">
+            <button class="hm_wizard_footer_btn" (click)="goToNext()">
+                Continue
+            </button>
+        </div>
+        <div class="" [hidden]="currentIndex != 2">
+            <button class="hm_wizard_footer_btn" (click)="submit()">
+                Submit
+            </button>
+        </div>
+        <!--<div class="" [hidden]="currentIndex != 3">
+            <button class="hm_wizard_footer_btn" (click)="wizardsuccess()">
+                Make Payment
+            </button>
+        </div>-->
+    </div>
+</ion-footer>

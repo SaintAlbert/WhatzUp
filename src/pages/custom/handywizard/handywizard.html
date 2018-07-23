@@ -1,0 +1,189 @@
+<ion-header class="hm_bg_color hm_header">
+    <ion-navbar color="none" *ngIf="item">
+        <ion-buttons >
+            <button [hidden]="currentIndex != 0" tappable (click)="dismiss()" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            <button [hidden]="currentIndex != 1" tappable (click)="backOne(0)" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            <button [hidden]="currentIndex != 2" tappable (click)="backOne(1)" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            <button [hidden]="currentIndex != 3" tappable (click)="backOne(2)" color="light" ion-button large clear item-left class="no-padding">
+                <ion-icon name="arrow-back"></ion-icon>Back
+            </button>
+            </ion-buttons>
+
+            <ion-title class="hm_service_div">
+                <div> <img [src]="item.iconKey" style="height:20px;width:20px;"> <span>{{item.handyKey}} Service</span></div>
+            </ion-title>
+
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="hm_wrapper_inner">
+        <ion-item-divider sticky  text-wrap style="border-bottom:none!important;">
+            <ion-thumbnail item-left>
+                <img [src]="item.image">
+            </ion-thumbnail>
+            <h1>{{item.title}}</h1>
+            <p>
+                <strong style="float:right;"><ion-icon name="arrow-round-forward"></ion-icon> {{item.price | currency:item.code:true:'1.2-2'}}</strong>
+            </p>
+        </ion-item-divider>
+      
+    
+            <div class="hm_wizard_slide" [hidden]="currentIndex != 0">
+                <div class="hm_wizard_completion">
+                    <div class="hm_wizard_progress_info">
+                        <strong>0</strong>% appointment completion
+                    </div>
+                    <div class="hm_wizard_content">
+                        <h5><ion-icon name="flower"></ion-icon> OUR PROMISE</h5>
+                        <ul>
+                            <li>Experienced and verified {{item.handyKey}} contractors</li>
+                            <li>High quality delivery</li>
+                        </ul>
+                        <h5><ion-icon name="cube"></ion-icon> Services Offered</h5>
+                        <ul *ngFor="let g of item.handyPackage">
+                            <li>
+                                {{g.label}}
+                            </li>
+                        </ul>
+
+                        <h5><ion-icon name="ion-person"></ion-icon>OPENING DAYS </h5>
+                        <ul *ngFor="let d of item.openingDay">
+                            <li>
+                                <strong> {{d}}</strong>
+                            </li>
+                        </ul>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="hm_wizard_slide" [hidden]="currentIndex != 1">
+                <div class="hm_wizard_completion">
+                    <div class="hm_wizard_progress_info">
+                        <strong>25</strong>% Completion
+                    </div>
+                    <div class="hm_wizard_content">
+                        <h5>PLEASE SPECIFY YOUR REQUIREMENT TO HELP US UNDERSTAND MORE OF YOUR NEED ?</h5>
+                  
+                        <textarea placeholder="Enter requirement " [(ngModel)]="form.requirment"></textarea>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hm_wizard_slide" [hidden]="currentIndex != 2">
+                <div class="hm_wizard_completion">
+                    <div class="hm_wizard_progress_info">
+                        <strong>50</strong>% Completion
+                    </div>
+                    <div class="hm_wizard_content">
+                        <h5>
+                            WHAT DATE AND TIME ARE YOU AVAILABLE FOR
+                            APPOINTMENT SESSIONS?
+                           
+                        </h5>
+
+                            <ion-item-divider>PICK YOUR DATE </ion-item-divider>
+                            <ion-item>
+                                <ion-label floating>{{'Booking Date' | translate}}</ion-label>
+                                <ion-datetime displayFormat="DD MMMM YYYY " [(ngModel)]="form.dateperiod" name="dateperiod" [required]="true"></ion-datetime>
+                            </ion-item>
+                      
+                            <!--<ion-item-divider>PICK YOUR DAY </ion-item-divider>
+                            <ion-item>
+                                <ion-label floating>{{'DAY' | translate}}</ion-label>
+                                <ion-select popover [(ngModel)]="form.appday" name="appday" text-wrap [required]="true">
+                                    <ion-option *ngFor="let d of item.openingDay" [value]="d">{{d | translate}} </ion-option>
+                                </ion-select>
+                            </ion-item>-->
+                       
+                            
+                            <ion-item-divider>PICK TIME PERIOD </ion-item-divider>
+                            <ion-item>
+                                <ion-label floating>{{'PERIOD' | translate}}</ion-label>
+                                <ion-select popover [(ngModel)]="form.timeperiod" name="timeperiod" text-wrap [required]="true">
+                                    <ion-option value="Early morning">{{'Early morning' | translate}} </ion-option>
+                                    <ion-option value="Morning">{{'Morning' | translate}} </ion-option>
+                                    <ion-option value="Afternoon">{{'Afternoon' | translate}} </ion-option>
+                                    <ion-option value="Evening">{{'Evening' | translate}} </ion-option>
+                                </ion-select>
+                            </ion-item>
+                            <!--<ion-item>
+                                <ion-label>Early morning</ion-label>
+                                <ion-radio value="Early morning"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Morning</ion-label>
+                                <ion-radio value="Morning"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Afternoon</ion-label>
+                                <ion-radio value="Afternoon"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Evening</ion-label>
+                                <ion-radio value="Evening"></ion-radio>
+                            </ion-item>-->
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="hm_wizard_slide" [hidden]="currentIndex != 3">
+                <div class="hm_wizard_completion">
+                    <div class="hm_wizard_progress_info">
+                        <strong>100</strong>% Completion
+                    </div>
+                    <div class="hm_wizard_content">
+                        <h5>WHERE ARE YOU LOCATED?</h5>
+                        <p>
+                            We’d need your location to find professionals who
+                            service in your area
+                        </p>
+
+                        <h6>Your Locality</h6>
+                        <address-input [address]="form.formatted_address" text-wrap></address-input>
+                        <!--<ion-button  class="hm_getlocation_btn">
+                        Get My Address Location
+                        </ion-button>-->
+                    </div>
+                </div>
+            </div>
+        <!--</ion-slides>-->
+    </div>
+</ion-content>
+<ion-footer >
+    <div class="hm_wizard_footer">
+        <!--<p>
+            We will save your requirement preferences for future<br>
+            requests
+        </p>-->
+        <div class="" [hidden]="currentIndex != 0">
+            <button class="hm_wizard_footer_btn" (click)="goToNextSlide1()">
+                Get Booking Started
+            </button>
+
+        </div>
+        <div class="" [hidden]="currentIndex != 1">
+            <button class="hm_wizard_footer_btn" (click)="goToNextSlide2()">
+                Next
+            </button>
+        </div>
+        <div class="" [hidden]="currentIndex != 2">
+            <button class="hm_wizard_footer_btn" (click)="goToNextSlide3()">
+                Next
+            </button>
+        </div>
+        <div class="" [hidden]="currentIndex != 3">
+            <button class="hm_wizard_footer_btn" (click)="wizardsuccess()">
+                Submit
+            </button>
+        </div>
+    </div>
+</ion-footer>

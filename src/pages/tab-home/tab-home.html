@@ -6,13 +6,20 @@
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title  class="hm_header_location_bay" (click)="location()">
-     {{mylocation}}
-      <span><img src="assets/img/cat/hm_dwn_arw.png"></span>
-    </ion-title>
-    <!--<button ion-button class="hm_header_btn hm_float_right hm_search_icon" (click)="location()"></button>-->
-
+      <ion-title>
+          WhatzUp
+      </ion-title>
+   
     <ion-buttons end>
+        
+        <button ion-button icon-only tappable (click)="location()">
+            <ion-icon name="arrow-down">
+            </ion-icon>
+        </button>
+        <button ion-button icon-only tappable (click)="onPageCategory()">
+            <ion-icon name="list">
+            </ion-icon>
+        </button>
       <button ion-button icon-only tappable (click)="onPageChat()">
         <ion-icon name="ios-chatbubbles">
           <ion-badge id="notifications-badge" color="danger">{{chatbadgeIncrease}}</ion-badge>
@@ -74,12 +81,17 @@
 </ion-header>-->
 
 <ion-content no-bounce  fullscreen>
+    <super-tabs scrollTabs (tabSelect)="onTabSelect($event)" selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="primary">
+        <super-tab [root]="page1" title="Upcoming" id="upcoming"></super-tab>
+        <super-tab [root]="page3" title="Handyman" id="category"></super-tab>
+        <super-tab [root]="page2" title="Moment" id="timeline"></super-tab>
+    </super-tabs>
 
-    <super-tabs scrollTabs  (tabSelect)="onTabSelect($event)" selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="primary"  >
+    <!--<super-tabs scrollTabs  (tabSelect)="onTabSelect($event)" selectedTabIndex="0" toolbarColor="light" toolbarBackground="dark" indicatorColor="primary"  >
         <super-tab [root]="page1" title="Upcoming" icon="calendar-outline" id="upcoming"></super-tab>
         <super-tab [root]="page3" title="Handyman" icon="construct-outline" id="category"></super-tab>
         <super-tab [root]="page2" title="Moment" icon="clock-outline" id="timeline"></super-tab>
-    </super-tabs>
+    </super-tabs>-->
 
     <!--<ion-fab right bottom small *ngIf="type=='timeline'">
         <button color="transparent" ion-fab tappable (click)="openShareCapture()">
